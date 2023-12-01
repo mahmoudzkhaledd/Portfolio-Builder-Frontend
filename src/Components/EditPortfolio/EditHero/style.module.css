@@ -1,0 +1,20 @@
+.mainCont {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.roundImage {
+    border-radius: 50%;
+    outline: 1px solid darkorange;
+    border: 1px solid white;
+    margin-bottom: 20px;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+}
+.rowImage{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}

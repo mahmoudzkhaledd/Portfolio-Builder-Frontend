@@ -1,0 +1,25 @@
+.mainBody {
+    min-height: 100vh;
+    padding-inline: 15px;
+    padding-block: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    background-color: var(--secondary);
+    transition: 0.3s;
+}
+.btn {
+    background-color: var(--secondary) ;
+    color: var(--text-fade) ;
+}
+.btn:hover {
+    background-color: var(--secondary-select) !important;
+    color: var(--text) !important;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .mainBody {
+        display: none;
+    }
+}

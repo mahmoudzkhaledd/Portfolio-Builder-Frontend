@@ -1,0 +1,15 @@
+.portfolioBox {
+    padding: 50px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #181818;
+}

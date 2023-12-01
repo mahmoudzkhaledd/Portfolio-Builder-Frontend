@@ -1,0 +1,8 @@
+.mainNavbarCont {
+    width: 100%;
+    padding: 20px;
+    background-color: #24292e;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}

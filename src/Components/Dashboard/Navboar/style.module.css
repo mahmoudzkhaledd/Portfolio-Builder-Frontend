@@ -1,0 +1,48 @@
+.navBar {
+    min-width: 100%;
+    padding-inline: 20px;
+    padding-block: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    column-gap: 20px;
+    list-style: none;
+ 
+}
+
+.navBarCont {
+    width: 100%;
+}
+
+.mobileMenuIcon {
+    display: none;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    list-style: none;
+    text-align: center;
+}
+
+.lst {
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 15px;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    background-color: var(--secondary);
+    color: var(--text);
+}
+
+.lst:hover {
+    background-color: var(--secondary-select);
+}
+

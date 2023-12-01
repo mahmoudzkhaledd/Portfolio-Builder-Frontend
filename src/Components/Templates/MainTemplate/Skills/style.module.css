@@ -1,0 +1,55 @@
+.mainContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+.skillContainer {
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    padding-block: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.04);
+    max-width: calc((100vw - 400px)/2);
+    
+}
+
+.skillsCollector {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.prop {
+    padding-inline: 15px;
+    padding-block: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.prop:hover {
+    background-color: rgba(50, 0, 71, 0.6);
+    color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+    .mainContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .skillContainer{
+        max-width: none;
+    }
+}

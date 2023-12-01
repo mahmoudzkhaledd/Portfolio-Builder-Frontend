@@ -1,0 +1,40 @@
+.mainBody {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #fafafb;
+
+}
+
+.iconCont {
+    display: flex;
+    justify-content: end;
+}
+
+.secBody {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.sorryDiv {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerCont {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+    .centerCont {
+        max-width: none;
+    }
+}

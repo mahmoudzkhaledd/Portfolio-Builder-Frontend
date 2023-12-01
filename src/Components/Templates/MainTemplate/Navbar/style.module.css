@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding-inline: 19px;
+    padding-block: 13px;
+    box-shadow: 1px 1px 40px #2323242a;
+    border-radius: 50px;
+    font-size: 14px;
+    background-color: white;
+}
+
+.navbar li a{
+    transition: 0.3s;
+    font-weight: 600;
+    color: rgb(39 39 42);
+}
+
+.navbar li a:hover {
+    color: rgb(0, 149, 246);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    font-size: .88rem;
+    margin-bottom: 30px;   
+    /* position: fixed;
+    width: 100%;
+    z-index: 100;
+    left: 0; */
+}
