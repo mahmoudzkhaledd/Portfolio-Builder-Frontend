@@ -14,15 +14,16 @@
 
 .title {
     margin-bottom: 5px;
+    color: var(--text-fade);
 }
 
 .progress {
-    color: #949496;
+    color: var(--text-fade);
     font-weight: 500;
 }
 
 .progressBar {
-    background-color: #6e65cf;
+    background-color: var(--primary);
     height: 5px;
     border-radius: 20px;
 }

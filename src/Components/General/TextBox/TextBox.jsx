@@ -19,8 +19,7 @@ export default function TextBox({ mb, label, error, name, area, className, minLe
                 onChange={onChanged}
                 value={value}
                 className={`${style.textBox} ${className}`} /> :
-                <textarea
-                    oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+                <textarea 
                     name={name}
                     minLength={minLength}
                     maxLength={maxLength}

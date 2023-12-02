@@ -3,7 +3,7 @@ export default function SkillContainer({ data, title }) {
     let i =10;
     return (
         <div className={style.skillContainer}>
-            <h2>{title}</h2>
+            <h4>{title}</h4>
             <br/>
             <div className={style.skillsCollector}>
                 {

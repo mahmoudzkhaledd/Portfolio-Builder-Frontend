@@ -2,7 +2,7 @@ import './style.css';
 import Link from 'next/link';
 export default function CardHover({ link, title, icon,circleColor }) {
     return (
-        <Link href={link} className="card education">
+        <Link href={link} className="cardHover education">
             <div className="overlay" style={{
                 backgroundColor:circleColor,
             }}>

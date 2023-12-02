@@ -7,37 +7,38 @@ import Navbar from "@/Components/Templates/MainTemplate/Navbar/Navbar";
 
 
 
-export default function RnderComponents({ component }) {
+export default function RnderComponents({ component,className }) {
+    console.log(component)
     if (component.type == "Navbar") {
         return <Navbar data={component.data} />
     }
-    if (component.type == "MainHero") {
-        return (<>
+    if (component.type == "Hero Component") {
+        return (<div className={className}>
             <MainHero data={component.data}/>
             <hr style={{ opacity: 0.3 }} />
-        </>);
+        </div>);
     }
-    if (component.type == "ProjectsSection") {
-        return (<><ProjectsSection data={component.data} />
+    if (component.type == "Projects Section") {
+        return (<div className={className}><ProjectsSection data={component.data} />
             <hr style={{ opacity: 0.3 }} />
-        </>)
+        </div>)
     }
-    if (component.type == "AboutMeSection") {
-        return (<> <AboutMeSection data={component.data} />
+    if (component.type == "About Me Section") {
+        return (<div className={className}> <AboutMeSection data={component.data} />
             <hr style={{ opacity: 0.3 }} />
-        </>)
+        </div>)
     }
-    if (component.type == "SkillsLevel") {
-        return (<>
+    if (component.type == "Skills Level Section") {
+        return (<div className={className}>
             <SkillsLevel data={component.data} />
             <hr style={{ opacity: 0.3 }} />
-        </>)
+        </div>)
     }
-    if (component.type == "SkillsSection") {
-        return (<>
+    if (component.type == "Skills Section") {
+        return (<div className={className}>
             <SkillsSection data={component.data} />
             <hr style={{ opacity: 0.3 }} />
-        </>)
+        </div>)
     }
     return <></>;
 }

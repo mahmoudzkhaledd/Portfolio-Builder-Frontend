@@ -1,10 +1,15 @@
 export const data = {
+    Home: {
+        text: "Home",
+        icon: "fa-solid fa-house",
+        hash: "Home",
+        href: "/",
+    },
     dashboard: {
         text: "Dashboard",
-        icon: "fa-solid fa-house",
-        hash: "Dashboard",
+        icon: "fa-solid fa-gauge",
+        hash: "Home",
     },
-
     shareTemplate: {
         text: "Share your template",
         icon: "fa-regular fa-handshake",
@@ -15,10 +20,11 @@ export const data = {
         icon: "fa-solid fa-bolt",
         hash: "BecomePro",
     },
-    
+
     settings: {
         text: "Settings",
         icon: "fa-solid fa-gear",
         hash: "Settings",
     },
+
 };

@@ -1,0 +1,168 @@
+.loadingDiv {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emptyBox {
+    font-size: 6rem;
+
+}
+
+.noDataCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.parentDiv {
+    max-width: 93%;
+    margin-inline: auto;
+}
+
+.mainCont {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    height: fit-content;
+}
+
+.compContainer,
+.headerContainer {
+    background-color: var(--secondary);
+
+    border-radius: 10px;
+    transition: 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.btnDiv {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.compContainer {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 20px;
+    height: fit-content;
+}
+
+.compContainer:hover {
+    scale: 1.1;
+}
+
+.headerTitleFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.circle {
+    border-radius: 50%;
+    border: 5px solid var(--text-fade);
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 6rem;
+}
+
+.headerImage {
+    width: 400px;
+}
+
+.mainBody {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+}
+
+.dragArea {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    background-color: var(--secondary);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.chosenElement {
+    width: 100%;
+    padding-block: 10px;
+    padding-inline: 20px;
+    background-color: var(--secondary-select);
+
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.texts {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .headerImage {
+        display: none;
+    }
+
+    .headerContainer {
+        padding-block: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

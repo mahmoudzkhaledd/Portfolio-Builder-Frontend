@@ -10,7 +10,7 @@ export default function AboutMeSection({ data }) {
                 textAlign: 'center',
                 marginTop: 20,
             }}>
-                <h1>About Me</h1>
+                <h3>About Me</h3>
                 <p style={{
                     color: "#a2a0ae",
                     marginTop: 10,

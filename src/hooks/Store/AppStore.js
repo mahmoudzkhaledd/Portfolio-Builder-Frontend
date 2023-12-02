@@ -10,6 +10,7 @@ export const slice = createSlice({
         user: null,
         configs: null,
         loggedIn: false,
+        theme: "light",
     },
     reducers: {
         configureLogin: (state, action) => {
@@ -21,6 +22,11 @@ export const slice = createSlice({
             state.user = action.payload.user;
             state.configs = action.payload.configs;
 
+        },
+        setTheme: (state, action) => {
+            state.theme = action.payload;
+            localStorage.setItem('theme', state.theme);
+            document.getElementsByTagName('html')[0].setAttribute('data-theme',state.theme);
         },
         logOut: (state) => {
             state.user = null;
@@ -35,7 +41,7 @@ export const slice = createSlice({
         },
         setLoggedIn: (state, action) => {
             state.loggedIn = action.payload;
-            console.log(state.loggedIn);
+            
         }
     }
 });

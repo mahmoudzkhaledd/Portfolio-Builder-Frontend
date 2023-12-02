@@ -1,0 +1,19 @@
+.mainCont{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary);
+    cursor: pointer;
+    border-radius: 10px;
+    padding-block:25px ;
+    color: var(--text);
+}
+.mainCont:hover{
+    background-color: var(--secondary-select);
+}
+.icon{
+    font-size: 2.5rem;
+}

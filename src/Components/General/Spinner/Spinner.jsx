@@ -7,15 +7,13 @@ export default function Spinner({ color, size }) {
         <Lottie
             animationData={animation}
             loop={true}
-            style={{
-                width: "300px",
-            }}
+            className={style.lottie}
         />
     );
-    
+
     return (
         <i
-            style={{ fontSize: size || 17,color:color, }}
+            style={{ fontSize: size || 17, color: color, }}
             className={`fa-solid fa-circle-notch ${style.spinner}`}></i>
     )
 }

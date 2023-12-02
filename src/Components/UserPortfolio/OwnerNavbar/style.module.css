@@ -1,8 +1,22 @@
 .mainNavbarCont {
+    
     width: 100%;
     padding: 20px;
-    background-color: #24292e;
+    background-color: rgba(var(--secondary-select), 0.8);
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
+    padding-inline: 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    -webkit-backdrop-filter: saturate(180%) blur(5px);
+    backdrop-filter: saturate(180%) blur(5px);
+    background-color: transparent;
+}
+.subCont{
+    display: flex;
+    gap: 20px;
 }

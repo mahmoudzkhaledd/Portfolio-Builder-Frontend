@@ -20,9 +20,9 @@
     margin-bottom: 20px;
     padding-inline: 20px;
     padding-block: 10px;
-    background-color: #919296;
+    background-color: var(--secondary);
     cursor: pointer;
-    color: white;
+    color: var(--text);
     transition: 0.3s;
     display: flex;
     flex-direction: column;
@@ -32,11 +32,11 @@
 }
 
 .catButton:hover {
-    background-color: #24252e;
+    background-color: var(--secondary-select);
 }
 
 .selected {
-    background-color: #24252e;
+    background-color: var(--secondary-select);
 
 }
 

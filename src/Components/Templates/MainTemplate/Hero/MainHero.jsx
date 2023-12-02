@@ -24,7 +24,7 @@ export default function MainHero({ data }) {
             </div>
             {
                 data.rightImage.laptop ? <Animation className={style.animation} /> : 
-                (data.rightImage && <img className= {data.rightImage.floating ? `${style.floatingImage} ${style.rightImage}` : style.rightImage} src= {data.rightImage.link} width={data.rightImage.width} height={data.rightImage.height}/>) 
+                (data.rightImage && <img className= {data.rightImage.floating ? `${'floatingImage'} ${style.rightImage}` : style.rightImage} src= {data.rightImage.link} width={data.rightImage.width} height={data.rightImage.height}/>) 
             }
         </div>
     )

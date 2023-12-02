@@ -1,7 +1,8 @@
 .mainContainer {
     width: 100%;
     display: flex;
-    gap: 100px;
+    column-gap: 100px;
+    row-gap: 20px;
 }
 
 .circleImage {
@@ -10,7 +11,7 @@
     border: 1px solid white;
     margin-bottom: 20px;
     object-fit: cover;
-}
+} 
 
 .floatingImage {
     animation-name: floating;
@@ -23,9 +24,11 @@
     0% {
         transform: translate(0, 0px);
     }
+
     50% {
         transform: translate(0, 10px);
     }
+
     100% {
         transform: translate(0, -0px);
     }
@@ -33,7 +36,7 @@
 
 
 .header {
-    color: rgb(39 39 42);
+    color: var(--text);
     font-weight: 800;
     font-size: 2.4rem;
 }
@@ -42,7 +45,7 @@
     font-size: .9rem;
     line-height: 1.65rem;
     margin-bottom: 32px;
-    color: rgb(82 82 91);
+    color: var(--text-fade);
 }
 
 .blur {
@@ -52,16 +55,27 @@
     min-width: 350px;
     min-height: 350px;
     border: 764px;
-    background: rgb(30, 27, 42, 0.2);
+    background: var(--primary);
+    opacity: 0.199;
     filter: blur(150px);
 }
-.rightImage{
+
+.rightImage {
     border-radius: 50%;
-    object-fit:cover;
+    object-fit: cover;
 }
+
 @media only screen and (max-width: 900px) {
-    .animation {
+    
+
+    .circleImage {
         display: none;
+    }
+
+    .mainContainer {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items:center;
     }
 
     .detailsCont {

@@ -6,7 +6,7 @@
 }
 
 
-.card {
+.cardHover {
   width: 220px;
   height: 321px;
   background: #fff;
@@ -28,38 +28,38 @@
   justify-content: space-between;
 }
 
-.card:hover {
+.cardHover:hover {
   transform: translateY(-5px) scale(1.005) translateZ(0);
   box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
     0 24px 46px var(--box-shadow-color);
 }
 
-.card:hover .overlay {
+.cardHover:hover .overlay {
   transform: scale(4) translateZ(0);
 }
 
 
 
-.card:hover .circle {
+.cardHover:hover .circle {
   border-color: var(--bg-color-light);
   background: var(--bg-color);
 }
 
-.card:hover .circle:after {
+.cardHover:hover .circle:after {
   background: var(--bg-color-light);
 }
 
-.card:hover p {
+.cardHover:hover p {
   color: var(--text-color-hover);
 }
 
-.card:active {
+.cardHover:active {
   transform: scale(1) translateZ(0);
   box-shadow: 0 15px 24px rgba(0, 0, 0, 0.11),
     0 15px 24px var(--box-shadow-color);
 }
 
-.card p {
+.cardHover p {
   font-size: 17px;
   color: #4C5656;
   margin-top: 30px;
@@ -100,7 +100,7 @@
   font-size: 30px;
   transition: all 0.15s ease-out;
 }
-.card:hover .icon {
+.cardHover:hover .icon {
   opacity: 0;
 }
 .overlay {

@@ -13,17 +13,17 @@ export default function DashboardPage() {
             <Card
                 title={"Total Views"}
                 data={port.totalViews}
-                image="/images/eye.png"
+                image="fa-solid fa-display"
             />
             <Card
                 title={"Total Messages"}
                 data={port.totalMessages}
-                image="/images/email.png"
+                image="fa-regular fa-comment"
             />
             <Card
                 title={"Portfolio Availability"}
                 data={port.online ? "Online" : "Offline"}
-                image="/images/availability.png"
+                image={`${port.online ? "fa-solid fa-globe" : "fa-solid fa-eye-slash"}`}
             />
         </div>
     )

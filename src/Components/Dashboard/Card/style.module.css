@@ -12,13 +12,24 @@
 
 .image {
     height: 70px;
+    color: var(--text);
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.invert{
+    filter: invert(1);
 }
 
 .dataCont {
     display: flex;
     flex-direction: row;
     column-gap: 27px;
-   
+
     /* color: rgb(33, 43, 54); */
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     background-image: none;
@@ -30,11 +41,11 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    padding: 27px ;
+    padding: 27px;
 }
 
 @media only screen and (max-width: 800px) {
-    .dataCont{
+    .dataCont {
         width: 100%;
         justify-content: center;
     }

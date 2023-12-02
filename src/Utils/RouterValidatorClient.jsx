@@ -11,6 +11,9 @@ export default function RouterValidatorClient({ children }) {
     useLayoutEffect(() => {
         const process = async () => {
             try {
+
+                const theme = localStorage.getItem('theme') || "light";
+                disp(slice.actions.setTheme(theme));
                 const str = localStorage.getItem('user');
                 const strConf = localStorage.getItem('configs');
                 const json = JSON.parse(str);
@@ -24,7 +27,7 @@ export default function RouterValidatorClient({ children }) {
                     configs: jsonConf,
                 }));
                 
-                disp(slice.actions.setLoggedIn(true))
+                disp(slice.actions.setLoggedIn(true));
                 return;
             } catch (ex) {
                 disp(slice.actions.setLoggedIn(false))

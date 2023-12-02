@@ -20,7 +20,7 @@
 }
 
 .navbar li a:hover {
-    color: rgb(0, 149, 246);
+    color: var(--primary);
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -28,11 +28,12 @@
 .navContainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding-bottom: 10px;
     font-size: .88rem;
     margin-bottom: 30px;   
+    width: 100%;
     /* position: fixed;
     width: 100%;
     z-index: 100;

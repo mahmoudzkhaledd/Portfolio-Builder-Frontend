@@ -10,7 +10,11 @@
     list-style: none;
  
 }
-
+.themeCont{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
 .navBarCont {
     width: 100%;
 }

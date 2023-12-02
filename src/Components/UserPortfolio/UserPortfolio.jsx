@@ -10,16 +10,17 @@ import OwnerNavbar from './OwnerNavbar/OwnerNavbar';
 import { TbEditCircle } from "react-icons/tb";
 import { IconButton } from '@mui/material';
 import { useSearchParams } from 'next/navigation'
-import EditPortfolioMapper from '../EditPortfolio/Mapper';
 import { UserProfileContextProvider } from './Context/UserProfileContext';
+import { useRouter } from 'next/navigation';
+import AddComponentSection from '../Templates/MainTemplate/AddComponent/AddComponentSection';
 function SorryDiv() {
     return <div className={style.sorryDiv}>
         Sorry, We can't find the portfolio you search for !
     </div>;
 }
 export default function UserPortfolio() {
+    const route = useRouter();
 
-    const [edited, setEdited] = useState(null);
     const param = useParams();
     const search = useSearchParams();
     if (param.id == null || param.id.length != 24) {
@@ -53,34 +54,58 @@ export default function UserPortfolio() {
 
     const handelEdit = (compData) => {
         if (compData != null) {
-            setEdited(compData);
+            sessionStorage.setItem('toEdit', JSON.stringify(compData));
+            route.push(`/portfolio/${param.id}/edit`);
         }
     }
-
+    const showLoggedIn = (loggedIn && editMode != 'false');
+    console.log(loading.port)
     return (
-        <UserProfileContextProvider value={{
-            components: loading.port.components,
-        }}>
+        <UserProfileContextProvider value={{ components: loading.port.components, }}>
+
             {
-                edited && <EditPortfolioMapper component={edited} onClose={() => setEdited(null)} />
+                (showLoggedIn) && <>
+                    <OwnerNavbar portId={param.id} />
+                    <br />
+                </>
             }
-            {
-                (loggedIn && editMode != 'false') && <OwnerNavbar portId={param.id} />
-            }
-            <br /><br />
-            <div className={style.centerCont}>
+            <br /><br /><br />
+
+            <div className={` ${style.centerCont}`}>
                 {
-                    loading.port.components.map((compData) => <div key={i++}>
+                    loading.port.components.map((compData) =>
+                        <div style={{ width: '100%' }} key={i++}>
+                            {
+                                (showLoggedIn) &&
+                                <div className={style.iconCont}>
+                                    <IconButton style={{ color: "var(--text)" }} onClick={() => handelEdit(compData)}>
+                                        <TbEditCircle />
+                                    </IconButton>
+                                </div>
+                            }
+                            <RnderComponents component={compData.settings} className={style.scrollAnimation} />
+                            <br />
+                        </div>)
+                }
+
+                {
+                    showLoggedIn && <>
                         {
-                            (loggedIn && editMode != 'false') &&
-                            <div className={style.iconCont}>
-                                <IconButton onClick={() => handelEdit(compData)}>
-                                    <TbEditCircle />
-                                </IconButton>
-                            </div>
+                            loading.port.components.length == 0 &&
+                            <>
+                                <br />
+                                <br />
+                                <h5>
+                                    No components added yet, Please Add More Components
+                                </h5>
+                                <br />
+                                <br />
+                            </>
                         }
-                        <RnderComponents component={compData} />
-                    </div>)
+                        <AddComponentSection />
+                        <br />
+                        <br />
+                    </>
                 }
             </div>
 

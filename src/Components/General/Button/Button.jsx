@@ -1,6 +1,6 @@
 import style from './style.module.css';
 
-export default function Button({ width,borderWidth, flexDirection,borderColor, bordered, disabled, justifyContent, className, text, borderRadius, onClick, loading, color, textColor, btnType, fontSize, verticalPadding, horizontalPadding, icon }) {
+export default function Button({ fontWeight, width, borderWidth, flexDirection, borderColor, bordered, disabled, justifyContent, className, text, borderRadius, onClick, loading, color, textColor, btnType, fontSize, verticalPadding, horizontalPadding, icon }) {
     return (
         <button
             type={btnType}
@@ -14,6 +14,7 @@ export default function Button({ width,borderWidth, flexDirection,borderColor, b
                 paddingInline: horizontalPadding,
                 paddingBlock: verticalPadding,
                 borderRadius,
+                fontWeight: fontWeight || 500,
                 justifyContent: justifyContent,
                 alignItems: justifyContent,
                 flexDirection: flexDirection || "row",
@@ -21,7 +22,7 @@ export default function Button({ width,borderWidth, flexDirection,borderColor, b
             onClick={onClick} className={`${style.button} ${className}`}>
             {icon && <i className={icon}></i>}
             {
-                !loading ? <p>{text}</p> :
+                !loading ? <p style={{ color: textColor }}>{text}</p> :
                     <i className={`fa-solid fa-circle-notch ${style.spinner}`}></i>
             }
         </button>

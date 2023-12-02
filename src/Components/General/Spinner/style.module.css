@@ -2,6 +2,16 @@
     animation:spin 3s linear infinite;
 
 }
+.lottie{
+    width: 200px;
+}
+.lottie svg g g g path{
+    stroke: var(--text);
+}
+
+
+
+
 @-moz-keyframes spin { 
     100% { -moz-transform: rotate(360deg); } 
 }

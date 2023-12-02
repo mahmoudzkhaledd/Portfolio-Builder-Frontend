@@ -8,9 +8,11 @@ import { dashContext } from '@/hooks/state/dashboardState';
 import { IconButton } from '@mui/material';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-function BuildButton({ text, selected, icon, onClick, show }) {
+import { useRouter } from 'next/navigation';
+function BuildButton({ text, selected, icon, onClick, show, href }) {
+  const r = useRouter()
   return <Button
-    onClick={onClick}
+    onClick={href == null ? onClick : () => { r.push(href); }}
     className={style.btn}
     fontSize={14}
     text={show ? text : null}
@@ -19,7 +21,6 @@ function BuildButton({ text, selected, icon, onClick, show }) {
     color={!selected ? "var(--secondary)" : "var(--secondary-select)"}
     textColor={!selected ? "var(--text-fade)" : "var(--text)"}
     flexDirection={!show ? "column" : "row"}
-
     icon={icon}
     justifyContent={!show ? "center" : null}
     borderRadius={7} />;
@@ -59,6 +60,7 @@ export default function SideBar() {
             hash={v.hash}
             show={show}
             icon={v.icon}
+            href={v.href}
             selected={ctx.currentPage === v.text}
             onClick={() => ctx.setPage(v.text)}
           />

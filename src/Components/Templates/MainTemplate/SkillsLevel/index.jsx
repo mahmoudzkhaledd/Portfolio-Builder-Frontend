@@ -9,7 +9,7 @@ export default function SkillsLevel({ data }) {
                 textAlign: 'center',
                 marginTop: 20,
             }}>
-                <h1>{data.title}</h1>
+                <h3>{data.title}</h3>
                 <p style={{
                     color: "#a2a0ae",
                     marginTop: 10,
