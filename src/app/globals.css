@@ -99,8 +99,11 @@ h6 {
   background-color: var(--background) !important;
 }
 .icon-ext:hover {
-  color: var(--text-invert) !important;
+  color: var(--text-invert) !important ;
   background-color: var(--background-invert) !important;
+}
+.icon-ext:hover p{
+  color: var(--text-invert) !important ;
 }
 
 small {
@@ -110,13 +113,15 @@ small {
 
 
 
-
+.circle-image{
+  border-radius: 50%;
+}
 
 
 
 
 .icon {
-  color: black;
+  color: var(--text);
 }
 
 .grid-2 {
@@ -142,7 +147,10 @@ a {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-
+.link{
+  color: var(--primary);
+  text-decoration: underline;
+}
 @keyframes floating {
   0% {
       transform: translate(0, 0px);

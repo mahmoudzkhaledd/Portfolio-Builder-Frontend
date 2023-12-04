@@ -9,7 +9,7 @@ export async function updateUserPortfolio(componens,portId) {
 
         return res.status == 200;
     } catch (ex) {
-        console.log(ex.response.data);
+        
         return false;
     }
 }

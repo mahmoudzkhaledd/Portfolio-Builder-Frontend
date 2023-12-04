@@ -10,6 +10,11 @@ export const data = {
         icon: "fa-solid fa-gauge",
         hash: "Home",
     },
+    repository: {
+        text: "Your repository",
+        icon: "fa-solid fa-database",
+        hash: "repo",
+    },
     shareTemplate: {
         text: "Share your template",
         icon: "fa-regular fa-handshake",

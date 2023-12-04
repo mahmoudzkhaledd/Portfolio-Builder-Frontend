@@ -34,7 +34,7 @@ export default function OwnerNavbar({ portId }) {
   };
   const handelEditMode = () => {
     const currentUrl = window.location.pathname;
-    console.log(currentUrl)
+
     router.replace(`${currentUrl}?editMode=false`, {
       query: {
         editMode: "false",

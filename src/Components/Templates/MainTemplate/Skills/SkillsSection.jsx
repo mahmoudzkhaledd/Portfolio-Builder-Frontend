@@ -3,7 +3,16 @@ import SkillContainer from "./SkillContainer";
 import style from './style.module.css';
 
 export default function SkillsSection({ data }) {
-    let i =0;
+    const skills = {};
+    for (const x of data.skills) {
+        if (skills[x.category] == null) {
+            skills[x.category] = [x.title];
+        } else {
+            skills[x.category].push(x.title);
+        }
+    }
+
+    let i = 0;
     return (
         <div>
             <div style={{
@@ -21,8 +30,9 @@ export default function SkillsSection({ data }) {
             <br />
             <div className={style.mainContainer}>
                 {
-                    data.skills && 
-                    data.skills.map((e) => <SkillContainer key={i++} data={e.skills} title={e.title} />)
+                    skills &&
+                    Object.keys(skills)
+                        .map((e) => <SkillContainer key={i++} data={skills[e]} title={e} />)
                 }
             </div>
             <br />

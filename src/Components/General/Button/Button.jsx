@@ -1,6 +1,7 @@
 import style from './style.module.css';
 
-export default function Button({ fontWeight, width, borderWidth, flexDirection, borderColor, bordered, disabled, justifyContent, className, text, borderRadius, onClick, loading, color, textColor, btnType, fontSize, verticalPadding, horizontalPadding, icon }) {
+export default function Button({ fontWeight, btnStyle, width, borderWidth, flexDirection, borderColor, bordered, disabled, justifyContent, className, text, borderRadius, onClick, loading, color, textColor, btnType, fontSize, verticalPadding, horizontalPadding, icon }) {
+    textColor = textColor || 'var(--text)';
     return (
         <button
             type={btnType}
@@ -18,6 +19,7 @@ export default function Button({ fontWeight, width, borderWidth, flexDirection, 
                 justifyContent: justifyContent,
                 alignItems: justifyContent,
                 flexDirection: flexDirection || "row",
+                ...btnStyle,
             }}
             onClick={onClick} className={`${style.button} ${className}`}>
             {icon && <i className={icon}></i>}

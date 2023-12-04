@@ -5,7 +5,7 @@ export async function configsCtrl() {
         const res = await axios.get('configs');
         return res.data.configs;
     } catch (ex) {
-        console.log(ex.response.data)
+
         return null;
     }
 }

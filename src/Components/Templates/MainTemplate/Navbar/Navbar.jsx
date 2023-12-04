@@ -3,9 +3,15 @@ import style from './style.module.css';
 import ModeSwitcher from '@/Components/ModeSwitcher/ModeSwitcher';
 
 export default function Navbar({ data }) {
+    const stickStyle = {
+        position: "fixed",
+        marginInline: "auto",
+        left: 0,
+        zIndex: 100,
+    }
     let i = 0;
     return (
-        <div className={style.navContainer}>
+        <div className={style.navContainer} style={data.stickTop ? stickStyle : {}}>
             <div />
             <ul className={style.navbar}>
                 {

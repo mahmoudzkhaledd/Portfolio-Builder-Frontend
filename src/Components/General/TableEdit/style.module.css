@@ -1,0 +1,21 @@
+.table {
+    background-color: var(--secondary);
+    color: var(--text) !important;
+}
+
+.tableHead {
+    background-color: var(--secondary-select);
+    color: var(--text) !important;
+}
+
+.tableRow {
+    color: var(--text) !important;
+}
+
+.tableCell {
+    color: var(--text) !important;
+}
+
+.hover:hover {
+    background-color: var(--secondary-select);
+}

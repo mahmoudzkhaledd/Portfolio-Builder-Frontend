@@ -1,181 +1,176 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { IconButton } from '@mui/material';
-import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
-import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
-import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
-import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
-import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
-import { useRef, useState } from 'react';
-
+import CollapseCard from '@/Components/General/CollapseCard/CollapseCard';
+import style from './style.module.css';
 import TextBox from '@/Components/General/TextBox/TextBox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import TableEdit from '@/Components/General/TableEdit/TableEdit';
+import EditPageNavbar from '../Navbar/Navbar';
 import Button from '@/Components/General/Button/Button';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
-export default function EditNavbarForm({ data, onClose }) {
-    const [items, setItems] = useState({
-        data: Object.assign([], data.items),
-    });
-    const to = useRef();
-    const title = useRef();
+import { useEffect, useState } from 'react';
+import { updateComponent } from '@/Controllers/EditPortfolio/EditPortfolioCtrl';
+import { useParams } from 'next/navigation';
+import Swal from 'sweetalert2';
+function clear(tableHeader) {
+    for (const x of tableHeader) {
+        const inp = document.getElementById(x.ref);
+        if (inp != null) {
+            if (x.textType == "number") {
+                inp.value = "0";
+            } else {
+                inp.value = "";
+            }
+        }
+    }
+}
+export default function EditNavbarForm({ data }) {
+    const tableHeader = [
+        {
+            text: "Name",
+            ref: "title",
+        },
+        {
+            text: "Element To",
+            ref: "to",
+        }
+    ];
 
-    const [editIdx, setEditIdx] = useState(-1);
+    const [loading, setLoading] = useState(false);
+    const [tableBody, setTableBody] = useState(data.settings.data.items);
+    const [toEdit, setToEdit] = useState(null);
+    const [checked, setChecked] = useState(data.settings.data.stickTop || false);
+    const { id, compId } = useParams();
 
-    const handelDelete = (element) => {
-        if (editIdx != -1) return;
-        items.data.splice(items.data.indexOf(element), 1);
-        setItems({
-            data: items.data,
-        });
-    };
-    const handelMoveElement = (element, up) => {
-        if (editIdx != -1) return;
-        const idx = items.data.indexOf(element);
-        const size = items.data.length;
-        if (up && idx == 0 || !up && idx == size - 1) return;
-        if (up) {
-            [items.data[idx], items.data[idx - 1]] = [items.data[idx - 1], items.data[idx]];
+
+    const handelSaveNetwork = async () => {
+        const val = new FormData(document.getElementById('frm-main-info'));
+        const obj = Object.fromEntries(val.entries());
+        for (const key of Object.keys(obj)) {
+            if (obj[key] == "") {
+                return;
+            }
+        }
+        data['name'] = obj['name'];
+
+        for (const key of Object.keys(obj)) {
+            if (key != 'name') {
+                data.settings.data[key] = obj[key];
+            }
+        }
+        data.settings.data.stickTop = checked;
+        data.settings.data.skills = tableBody;
+        setLoading(true);
+        const res = await updateComponent(id, compId, data);
+        setLoading(false);
+        if (res) {
+            Swal.fire({
+                title: "Successful Operation",
+                text: "Component Updated Succefully",
+                icon: 'success'
+            })
         } else {
-            [items.data[idx], items.data[idx + 1]] = [items.data[idx + 1], items.data[idx]];
+            Swal.fire({
+                title: "Failed Operation",
+                text: "Unknown error occured, please try again !",
+                icon: 'error',
+            })
         }
-        setItems({
-            data: items.data,
-        });
     };
-    const handelSave = () => {
-        data.items = [];
-        data.items.push(...items.data);
-        onClose();
-    };
-    const handelAdd = () => {
-        let eleTo = to.current.value;
-        const eleTitle = title.current.value;
-        if(eleTo == null || eleTitle == null || eleTitle == "" || eleTo == ""){
-            return;
+    const handelEdit = (item) => {
+        const idx = tableBody.indexOf(item);
+        if (idx == -1 || toEdit != null) return;
+        setToEdit(idx);
+        for (const x of tableHeader) {
+            const inp = document.getElementById(x.ref);
+            if (inp != null) {
+                inp.value = tableBody[idx][x.ref];
+            }
         }
-        eleTo= eleTo.replaceAll("#",'');
-        eleTo = `#${eleTo}`;
+    };
+    const handelAddItem = (e) => {
+        e.preventDefault();
+        const val = new FormData(document.getElementById('frm-submit'));
+        const obj = Object.fromEntries(val.entries());
+        for (const val of tableHeader) {
+            if (obj[val.ref] == "" || (val.textType == 'number' && !isNumeric(obj[val.ref]) || (val.textType == 'number' && Number(obj[val.ref]) > 100))) {
+                return;
+            }
+        }
+        tableBody.push(obj)
+        setTableBody([...tableBody]);
+        clear(tableHeader);
+    };
+    const handelSaveItem = (event) => {
+        event.preventDefault();
+        const val = new FormData(document.getElementById('frm-submit'));
+        const obj = Object.fromEntries(val.entries());
 
-        items.data.push({
-            to:eleTo,
-            title:eleTitle,
+        for (const key of Object.keys(obj)) {
+            if (obj[key] == "") {
+                return;
+            }
+        }
+        for (const key of Object.keys(obj)) {
 
-        });
-        setItems({
-            data: items.data,
-        });
-    };  
+            tableBody[toEdit][key] = obj[key];
+        }
+
+        setTableBody([...tableBody]);
+        setToEdit(null);
+        clear(tableHeader);
+    };
     let i = 0;
-
     return (
-        <div>
-            <TableContainer component={Paper} style={{ boxShadow: "none" }}>
-                <Table >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>#</TableCell>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Component To</TableCell>
+        <div className={style.mainCont}>
+            <EditPageNavbar onClick={handelSaveNetwork} loading={loading} />
+            <div className={style.mainGrid}>
 
-                            <TableCell align='center'>Edit</TableCell>
-                            <TableCell>Delete</TableCell>
-                            <TableCell align='center'>Move</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {
-                            items.data && items.data.map((e) => {
-                                let idx = i;
-                                if (idx == editIdx) {
-                                    return <Edit key={i++} closeEdit={() => setEditIdx(-1)} index={idx} data={e} />;
-                                }
-                                return (
-                                    <TableRow key={i++}>
-                                        <TableCell>{i + 1}</TableCell>
-                                        <TableCell>{e.title}</TableCell>
-                                        <TableCell>{e.to}</TableCell>
+                <div className={style.bottomSide}>
+                    <CollapseCard title={toEdit == null ? "Add New Item" : "Edit Item"}>
+                        <form id='frm-submit'>
+                            {
+                                tableHeader.map(e => {
+                                    return <TextBox
+                                        id={e.ref}
+                                        key={i++}
+                                        name={e.ref}
+                                        placeholder={e.text}
+                                        label={e.text}
+                                        type={e.textType || ""}
+                                    />;
+                                })
+                            }
+                            <Button
+                                onClick={toEdit == null ? handelAddItem : handelSaveItem}
+                                btnStyle={{ marginLeft: "auto" }}
+                                text={toEdit == null ? "Add" : "Edit"}
+                                width="fit-content"
+                                className="icon-ext"
+                                justifyContent="center" />
+                        </form>
+                    </CollapseCard>
 
-                                        <TableCell align='center'>
-                                            <IconButton onClick={() => setEditIdx(idx)}>
-                                                <AutoAwesomeRoundedIcon />
-                                            </IconButton>
-                                        </TableCell>
-                                        <TableCell align='center'>
-                                            <IconButton onClick={() => handelDelete(e)}>
-                                                <ClearRoundedIcon />
-                                            </IconButton>
-                                        </TableCell>
-                                        <TableCell align='center'>
-                                            <IconButton onClick={() => handelMoveElement(e, true)}>
-                                                <ArrowUpwardRoundedIcon />
-                                            </IconButton>
-                                            <IconButton onClick={() => handelMoveElement(e, false)}>
-                                                <ArrowDownwardRoundedIcon />
-                                            </IconButton>
-                                        </TableCell>
-                                    </TableRow>
-                                );
-                            })
-                        }
-                        <TableRow>
-                            <TableCell>+</TableCell>
-                            <TableCell><TextBox reference={title} placeholder="Title" /> </TableCell>
-                            <TableCell><TextBox reference={to} placeholder="To" /> </TableCell>
-                            <TableCell align='center'> </TableCell>
-                            <TableCell align='center'>
-                                <IconButton onClick={handelAdd}>
-                                    <AddRoundedIcon />
-                                </IconButton>
-                            </TableCell>
-                            <TableCell align='center'> </TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <br />
-            <Button onClick={handelSave} text="Save" justifyContent="center" verticalPadding={10} />
+                    <CollapseCard title="Main Information">
+                        <form id='frm-main-info'>
+                            <FormControlLabel
+                                control={<Checkbox checked={checked} onChange={() => setChecked(!checked)} />}
+                                label="Stick at top" />
+                            <TextBox
+                                name="name"
+                                initialValue={data.name}
+                                placeholder="Name"
+                                label="Component name"
+                                maxLength={30} />
+
+                        </form>
+
+                    </CollapseCard>
+                </div>
+                <div>
+                    <CollapseCard title="Navbar Items">
+                        <TableEdit toEdit={toEdit} handelEdit={handelEdit} hover={true} header={tableHeader} body={tableBody} setItems={setTableBody} />
+                    </CollapseCard>
+                </div>
+            </div>
         </div>
     )
-}
-
-function Edit({ data, index, closeEdit }) {
-    const [values, setValues] = useState({
-        title: data.title,
-        to: data.to,
-    });
-    const handleInputChange = (event, key) => {
-        values[key] = event.target.value;
-        setValues({ ...values })
-    }
-    const handelSave = () => {
-        data.title = values.title;
-        data.to = values.to;
-        closeEdit();
-    };
-    return (
-        <TableRow>
-            <TableCell>{index + 1}</TableCell>
-
-
-            <TableCell><TextBox value={values.title} onChanged={(e) => handleInputChange(e, "title")} /> </TableCell>
-            <TableCell><TextBox value={values.to} onChanged={(e) => handleInputChange(e, "to")} /> </TableCell>
-
-
-            <TableCell align='center'>
-                <IconButton onClick={handelSave}>
-                    <DoneRoundedIcon />
-                </IconButton>
-            </TableCell>
-            <TableCell align='center'>
-                <IconButton onClick={closeEdit}>
-                    <ClearRoundedIcon />
-                </IconButton>
-            </TableCell>
-            <TableCell align='center'> </TableCell>
-        </TableRow>
-    );
 }

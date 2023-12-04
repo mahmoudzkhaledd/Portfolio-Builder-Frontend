@@ -27,7 +27,7 @@ export default function ShareTemplatePage() {
     setLoading(true);
     const res = await makeTemplateOrder(link, description);
     setLoading(false);
-    console.log(res);
+
   };
 
   let m = 0;

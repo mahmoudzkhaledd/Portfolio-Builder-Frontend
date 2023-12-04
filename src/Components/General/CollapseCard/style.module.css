@@ -1,0 +1,42 @@
+.card {
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-inline: 15px;
+    padding-block: 7px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.cardBody {
+    border-radius: 0px 0px 5px 5px;
+    transition: height 0.5s ease;
+    overflow: hidden; 
+    height: auto;
+    width: 100%;
+}
+
+.cardContent {
+    width: 100%;
+    padding: 15px;
+}
+
+.title {
+    font-size: 1.15rem;
+}
+
+.icon {
+    transition: 0.3s;
+}
+
+.rotate {
+    rotate: 180deg;
+}

@@ -1,7 +1,11 @@
 import style from './style.module.css'
 
-export default function TextBox({ mb, label, error, name, area, className, minLength, maxLength, disabled, reference, type, onChanged, value, placeholder }) {
-
+export default function TextBox({ id, mb, initialValue, label, error, name, area, className, minLength, maxLength, disabled, reference, type, onChanged, value, placeholder }) {
+    function input(e) {
+        e.target.style.height = "";
+        e.target.style.height =
+            e.target.scrollHeight + "px";
+    }
     return (
         <div style={{ marginBottom: mb }}>
             <p className={style.labelText}>
@@ -9,7 +13,9 @@ export default function TextBox({ mb, label, error, name, area, className, minLe
                 {error && ` (${error})`}
             </p>
             {!area ? <input
+                id={id}
                 name={name}
+                defaultValue={initialValue}
                 minLength={minLength}
                 maxLength={maxLength}
                 ref={reference}
@@ -19,8 +25,11 @@ export default function TextBox({ mb, label, error, name, area, className, minLe
                 onChange={onChanged}
                 value={value}
                 className={`${style.textBox} ${className}`} /> :
-                <textarea 
+                <textarea
+                    id={id}
+                    onInput={input}
                     name={name}
+                    defaultValue={initialValue}
                     minLength={minLength}
                     maxLength={maxLength}
                     ref={reference}

@@ -49,17 +49,17 @@ export default function UserPortfolio() {
     const loggedIn = store.getState().loggedIn;
     const editMode = search.get('editMode');
 
-    let i = 0;
+    let keyCounter = 0;
 
 
     const handelEdit = (compData) => {
         if (compData != null) {
-            sessionStorage.setItem('toEdit', JSON.stringify(compData));
-            route.push(`/portfolio/${param.id}/edit`);
+
+            route.push(`/portfolio/${param.id}/edit/${compData._id}`);
         }
     }
     const showLoggedIn = (loggedIn && editMode != 'false');
-    console.log(loading.port)
+
     return (
         <UserProfileContextProvider value={{ components: loading.port.components, }}>
 
@@ -73,19 +73,27 @@ export default function UserPortfolio() {
 
             <div className={` ${style.centerCont}`}>
                 {
-                    loading.port.components.map((compData) =>
-                        <div style={{ width: '100%' }} key={i++}>
-                            {
-                                (showLoggedIn) &&
-                                <div className={style.iconCont}>
-                                    <IconButton style={{ color: "var(--text)" }} onClick={() => handelEdit(compData)}>
-                                        <TbEditCircle />
-                                    </IconButton>
-                                </div>
-                            }
-                            <RnderComponents component={compData.settings} className={style.scrollAnimation} />
-                            <br />
-                        </div>)
+                    loading.port.components.map((compData) => {
+
+                        return (
+                            <div style={{ width: '100%' }} key={keyCounter++}>
+                                {
+                                    (showLoggedIn) &&
+                                    <div className={style.iconCont}>
+                                        <IconButton style={{ color: "var(--text)" }} onClick={() => handelEdit(compData)}>
+                                            <TbEditCircle />
+                                        </IconButton>
+                                    </div>
+                                }
+                                <RnderComponents component={compData.settings}  />
+                                <br />
+                                {
+                                    compData.settings.type != 'Navbar' && <hr style={{ opacity: 0.3 }} />
+                                }
+                                <br />
+                            </div>
+                        )
+                    })
                 }
 
                 {

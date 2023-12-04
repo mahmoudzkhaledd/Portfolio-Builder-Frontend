@@ -11,6 +11,7 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import Button from "../General/Button/Button";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import InformationHeader from "../General/InformationHeader/InformationHeader";
 function ComponentContainer({ comp, handelDrag, onClick }) {
     return (
         <div className={style.compContainer}
@@ -32,7 +33,10 @@ function ComponentContainer({ comp, handelDrag, onClick }) {
 }
 
 function ChosenComponent({ ele, idx, handelDelete, outer, onDeleteNetwork }) {
-    const stll = { color: outer ? "var(--text-invert)" : "", borderColor: outer ? "var(--text-invert)" : "" };
+    const stll = {
+        color: !outer ? "var(--text)" : "white",
+        borderColor: !outer ? "var(--text)" : "white"
+    };
     return (
         <div className={style.chosenElement} style={{ backgroundColor: outer ? "var(--primary)" : "", }}>
             <div className={style.texts} >
@@ -155,20 +159,10 @@ export default function AddComponentPage() {
         <div className={style.parentDiv}>
             <br />
             <br />
-            <div className={style.headerContainer}>
-                <div className={style.titleCont}>
-                    <h1> Enjoy chosing<br />components </h1>
-                    <br />
-                    <Button
-                        width="fit-content"
-                        justifyContent="center"
-                        text="Back to Portfolio"
-                        className="icon-ext"
-                        onClick={() => router.replace(window.location.pathname.split('/add-components')[0])} />
-
-                </div>
-                <img className={style.headerImage} src="/images/Choose-pana.svg" />
-            </div>
+            <InformationHeader
+                image="/images/Choose-pana.svg"
+                onClick={() => router.replace(window.location.pathname.split('/add-components')[0])}
+                buttonText="Back to Portfolio" title={'Enjoy chosing\ncomponents '} />
             <br />
             <br />
 

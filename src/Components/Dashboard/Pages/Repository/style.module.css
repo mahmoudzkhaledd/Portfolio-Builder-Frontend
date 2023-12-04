@@ -1,0 +1,27 @@
+.image {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.grid > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid > div >  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.grid{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow:dense ;
+}

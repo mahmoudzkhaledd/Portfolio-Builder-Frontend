@@ -10,12 +10,12 @@ export default function AboutMeSection({ data }) {
                 textAlign: 'center',
                 marginTop: 20,
             }}>
-                <h3>About Me</h3>
+                <h3>{data.title}</h3>
                 <p style={{
                     color: "#a2a0ae",
                     marginTop: 10,
                     paddingInline: 50,
-                }}>Personal information of me and my experience in the field</p>
+                }}>{data.subTitle}</p>
             </div>
             <div className={style.aboutContainer} >
                 {data.image && <img
@@ -25,7 +25,7 @@ export default function AboutMeSection({ data }) {
                     alt=""
                     className={style.image}
                     style={{
-                        borderRadius: data.image.circle ? "50%" : data.image.borderRadius,
+                        borderRadius: "15px",
                         objectFit: "cover",
                     }}
                 />}

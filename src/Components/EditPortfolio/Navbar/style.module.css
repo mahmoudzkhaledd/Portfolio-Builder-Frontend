@@ -1,0 +1,9 @@
+.navBar {
+    width: 100%;
+    padding-block: 15px;
+    padding-inline: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
