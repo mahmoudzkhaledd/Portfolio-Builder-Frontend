@@ -1,5 +1,5 @@
 import axios from '@/Utils/Axios';
-
+import cookie from 'js-cookie'
 export async function loginCtrl(email, password) {
     const data = {
         success: false,
@@ -21,6 +21,7 @@ export async function loginCtrl(email, password) {
         localStorage.setItem('user', JSON.stringify(res.data.user));
         localStorage.setItem('configs', JSON.stringify(res.data.configs));
 
+        document.cookie = `token=Bearer ${res.data.token}`;
     } catch (ex) {
         const res = ex.response;
         if (res == null) {

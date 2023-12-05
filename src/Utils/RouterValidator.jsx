@@ -33,7 +33,8 @@ export default async function RouterValidator({ children }) {
     const headersList = headers();
     const header_url = headersList.get('x-url');
     const token = cookies().get('token');
-
+    console.log('===============================================');
+    
     
     try {
         const userModel = jwt.verify(token.value.split(' ')[1], process.env.ACCESS_TOKEN_KEY);
@@ -46,7 +47,7 @@ export default async function RouterValidator({ children }) {
         
         return children;
     } catch (ex) {
-       
+
         if (matchRoute(header_url)) {
             return children;
         }
