@@ -4,10 +4,10 @@ import { slice } from '@/hooks/Store/AppStore';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import cookies from 'js-cookie';
-import { configsCtrl } from '@/Controllers/configs/ConfigsCtrl';
 export default function RouterValidatorClient({ children }) {
     const rout = useRouter();
     const disp = useDispatch();
+    
     useLayoutEffect(() => {
         const process = async () => {
             try {
@@ -26,7 +26,7 @@ export default function RouterValidatorClient({ children }) {
                     user: json,
                     configs: jsonConf,
                 }));
-                
+
                 disp(slice.actions.setLoggedIn(true));
                 return;
             } catch (ex) {

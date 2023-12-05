@@ -43,7 +43,7 @@ function LeftImageCollapse({ image }) {
 export default function AboutMeEditor({ data }) {
     const tableHeader = [
         {
-            text: "Tcon",
+            text: "Icon",
             ref: "icon",
             type: "icon",
         },
@@ -54,6 +54,7 @@ export default function AboutMeEditor({ data }) {
         {
             text: "Subtitle",
             ref: "subTitle",
+            maxLength: 20,
         },
     ];
 
@@ -181,7 +182,7 @@ export default function AboutMeEditor({ data }) {
                                         name={e.ref}
                                         placeholder={e.text}
                                         label={e.text}
-
+                                        maxLength={e.maxLength}
                                     />;
                                 })
                             }
@@ -214,7 +215,7 @@ export default function AboutMeEditor({ data }) {
                                 initialValue={data.settings.data.subTitle}
                                 placeholder="Subtitle"
                                 label="Subtitle"
-                                maxLength={30} />
+                                area={true} />
 
                             <TextBox
                                 name="description"
@@ -222,7 +223,7 @@ export default function AboutMeEditor({ data }) {
                                 placeholder="Description"
                                 label="Description"
                                 area={true}
-                                maxLength={350} />
+                            />
                         </form>
 
                     </CollapseCard>
@@ -245,7 +246,7 @@ export default function AboutMeEditor({ data }) {
                                 initialValue={data.settings.data.button.link}
                                 placeholder="On click link"
                                 label="On click link"
-                                 />
+                            />
                         </form>
                     </CollapseCard>
                 </div>

@@ -13,6 +13,7 @@ import { useSearchParams } from 'next/navigation'
 import { UserProfileContextProvider } from './Context/UserProfileContext';
 import { useRouter } from 'next/navigation';
 import AddComponentSection from '../Templates/MainTemplate/AddComponent/AddComponentSection';
+import Link from 'next/link';
 function SorryDiv() {
     return <div className={style.sorryDiv}>
         Sorry, We can't find the portfolio you search for !
@@ -52,12 +53,7 @@ export default function UserPortfolio() {
     let keyCounter = 0;
 
 
-    const handelEdit = (compData) => {
-        if (compData != null) {
 
-            route.push(`/portfolio/${param.id}/edit/${compData._id}`);
-        }
-    }
     const showLoggedIn = (loggedIn && editMode != 'false');
 
     return (
@@ -80,12 +76,15 @@ export default function UserPortfolio() {
                                 {
                                     (showLoggedIn) &&
                                     <div className={style.iconCont}>
-                                        <IconButton style={{ color: "var(--text)" }} onClick={() => handelEdit(compData)}>
-                                            <TbEditCircle />
-                                        </IconButton>
+                                        <Link href={`/portfolio/${param.id}/edit/${compData._id}`}>
+                                            <IconButton style={{ color: "var(--text)" }} >
+                                                <TbEditCircle />
+                                            </IconButton>
+                                        </Link>
+
                                     </div>
                                 }
-                                <RnderComponents component={compData.settings}  />
+                                <RnderComponents component={compData.settings} />
                                 <br />
                                 {
                                     compData.settings.type != 'Navbar' && <hr style={{ opacity: 0.3 }} />

@@ -181,7 +181,7 @@ export default function ProjectsSectionEditor({ data }) {
                                 initialValue={data.settings.data.subTitle}
                                 placeholder="Subtitle"
                                 label="Subtitle"
-                                maxLength={30} />
+                                area={true} />
                         </form>
 
                     </CollapseCard>

@@ -57,7 +57,8 @@ export default function EditNavbarForm({ data }) {
             }
         }
         data.settings.data.stickTop = checked;
-        data.settings.data.skills = tableBody;
+        data.settings.data.items = tableBody;
+        console.log(data);
         setLoading(true);
         const res = await updateComponent(id, compId, data);
         setLoading(false);
