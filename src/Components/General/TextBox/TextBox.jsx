@@ -1,6 +1,6 @@
 import style from './style.module.css'
 
-export default function TextBox({ id, mb, initialValue, label, error, name, area, className, minLength, maxLength, disabled, reference, type, onChanged, value, placeholder }) {
+export default function TextBox({ id, mb, pattern, initialValue, label, error, name, area, className, minLength, maxLength, disabled, reference, type, onChanged, value, placeholder }) {
     function input(e) {
         e.target.style.height = "";
         e.target.style.height =
@@ -15,6 +15,7 @@ export default function TextBox({ id, mb, initialValue, label, error, name, area
             {!area ? <input
                 id={id}
                 name={name}
+                pattern={pattern}
                 defaultValue={initialValue}
                 minLength={minLength}
                 maxLength={maxLength}
@@ -27,6 +28,7 @@ export default function TextBox({ id, mb, initialValue, label, error, name, area
                 className={`${style.textBox} ${className}`} /> :
                 <textarea
                     id={id}
+                    pattern={pattern}
                     onInput={input}
                     name={name}
                     defaultValue={initialValue}

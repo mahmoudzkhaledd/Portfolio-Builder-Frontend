@@ -14,8 +14,8 @@ export default function LoginPageForm() {
     const rout = useRouter();
     const disp = useDispatch();
     const [disabled, setDisabled] = useState(false)
-    const [ee, setEm] = useState('sss@mohmal.in');
-    const [pa, setPa] = useState('12345678');
+    const [ee, setEm] = useState('');
+    const [pa, setPa] = useState('');
     const handelClick = async (e) => {
         e.preventDefault();
         const em = email.current.value;

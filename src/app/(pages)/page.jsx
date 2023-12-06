@@ -6,7 +6,7 @@ export default async function page() {
     return (
         <div className={style.pageLayout}>
             <div className={style.title}>
-                <h1>👋 Good morning Mahmoud</h1>
+                <h3>👋 Good morning Mahmoud</h3>
                 <p className='subTitle'>Choose porofilio to enter dashboard</p>
             </div>
             <br />

@@ -3,7 +3,6 @@ import { cookies, headers } from 'next/headers';
 import dotEnv from 'dotenv';
 import UnauhtorizedPage from "@/Components/General/UnAuthorized/Unauhtorized";
 import { redirect } from 'next/navigation'
-import { RedirectType } from "next/dist/client/components/redirect";
 dotEnv.config();
 
 const unProtectedRoutes = [
@@ -30,27 +29,33 @@ function matchRoute(incomingRoute) {
 
 export default async function RouterValidator({ children }) {
     "use server";
-    
+   
     const headersList = headers();
     
     const header_url = headersList.get('x-url');
-    const token = cookies().get('token');
-    console.log(token);
-
     
+
+
+
+    const token = cookies().get('token');
+
+    let userModel;
     try {
-        const userModel = jwt.verify(token.value.split(' ')[1], process.env.ACCESS_TOKEN_KEY);
-        if (!userModel.verifiedEmail) {
-            redirect('/verify-email/');
-        }
-
-        
-        return children;
+        userModel = jwt.verify(token.value.split(' ')[1], process.env.ACCESS_TOKEN_KEY);
+        if(userModel == null) throw "";
     } catch (ex) {
-
+        console.log(ex);
         if (matchRoute(header_url)) {
             return children;
         }
         return <UnauhtorizedPage />
     }
+    if (!userModel.verifiedEmail && header_url != '/verify-email') {
+        return redirect('/verify-email');
+    }
+    if(notAlloweRoutes.includes(header_url) && userModel.verifiedEmail){
+        return redirect('/');
+    }
+    
+    return children;
 }

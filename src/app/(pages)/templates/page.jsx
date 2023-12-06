@@ -5,7 +5,7 @@ export default function page() {
     return (
         <div className={style.mainCont}>
             <div className={style.header}>
-                <h2>Choose Template And Enjoy</h2>
+                <h4 style={{textAlign:'center'}}>Choose Template And Enjoy</h4>
             </div>
             <div className={style.body}>
                 <ChooseTemplate />

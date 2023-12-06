@@ -18,7 +18,7 @@ export default function TemplateCard({ template }) {
             {
                 openModal && <ChooseTemplateModel template={template} handleClose={() => setOpen(false)} />
             }
-            <Card sx={{ width: 320 }}>
+            <Card sx={{maxWidth:"350px",display:'flex'}}>
                 <div>
                     <Typography level="title-lg">
                         {template.name}
