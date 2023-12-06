@@ -1,6 +1,6 @@
 import style from './style.module.css';
-
-export default function Card({ title, data, image }) {
+import { IconButton } from '@mui/material';
+export default function Card({ title, data, image, onClick }) {
 
 
     return (
@@ -10,7 +10,12 @@ export default function Card({ title, data, image }) {
                 <br />
                 <h5 className={style.data}>{data}</h5>
             </div>
-            <i className={`${style.image} ${image}`}></i>
+            {
+                onClick != null ? <IconButton onClick={onClick}>
+                    <i className={`${style.image} ${image}`}></i>
+                </IconButton> : <i className={`${style.image} ${image}`}></i>
+            }
+
         </div>
     )
 }

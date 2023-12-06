@@ -16,12 +16,15 @@ import AddComponentSection from '../Templates/MainTemplate/AddComponent/AddCompo
 import Link from 'next/link';
 function SorryDiv() {
     return <div className={style.sorryDiv}>
-        Sorry, We can't find the portfolio you search for !
-    </div>;
+        <h2 style={{
+            fontSize: "16px",
+            fontWeight: "400",
+            lineHeight: "49px",
+            margin: "0px",
+        }}> The portfolio you search for does not exists or offline right now!</h2>
+    </div >;
 }
 export default function UserPortfolio() {
-    const route = useRouter();
-
     const param = useParams();
     const search = useSearchParams();
     if (param.id == null || param.id.length != 24) {
