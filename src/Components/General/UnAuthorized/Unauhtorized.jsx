@@ -11,7 +11,7 @@ export default function UnauhtorizedPage() {
     <div className={style.mainCont}>
       <Image alt="" src="/images/lock.png" width={200} height={200} />
       <br />
-      <h2 style={{ textAlign: 'center' }}>The page is not publically available,<br />please login first.</h2>
+      <h5 style={{ textAlign: 'center' }}>The page is not publically available,<br />please login first.</h5>
       <div>
       <br/>
         <Button text="Login Page" onClick={() => { rout.replace('/login');rout.refresh(); }} justifyContent="center"/>

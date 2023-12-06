@@ -12,28 +12,12 @@ export default function RouterValidatorClient({ children }) {
     useLayoutEffect(() => {
         const process = async () => {
             try {
-
                 const theme = localStorage.getItem('theme') || "light";
                 disp(slice.actions.setTheme(theme));
-                const str = localStorage.getItem('user');
-                const strConf = localStorage.getItem('configs');
-                const json = JSON.parse(str);
-                const jsonConf = JSON.parse(strConf);
-                if (json == null || jsonConf == null) {
-                    throw "";
-                }
-
-                disp(slice.actions.setLoginState({
-                    user: json,
-                    configs: jsonConf,
-                }));
-
                 disp(slice.actions.setLoggedIn(true));
-                return;
+                return; 
             } catch (ex) {
-                disp(slice.actions.setLoggedIn(false))
-                cookies.remove('token');
-                rout.refresh();
+                console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
             }
         }
         process();

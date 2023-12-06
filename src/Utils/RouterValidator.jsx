@@ -30,20 +30,20 @@ function matchRoute(incomingRoute) {
 
 export default async function RouterValidator({ children }) {
     "use server";
+    
     const headersList = headers();
     
     const header_url = headersList.get('x-url');
     const token = cookies().get('token');
-    
+    console.log(token);
+
     
     try {
         const userModel = jwt.verify(token.value.split(' ')[1], process.env.ACCESS_TOKEN_KEY);
         if (!userModel.verifiedEmail) {
             redirect('/verify-email/');
         }
-        if (notAlloweRoutes.includes(header_url)) {
-            redirect('/', RedirectType.push);
-        }
+
         
         return children;
     } catch (ex) {
