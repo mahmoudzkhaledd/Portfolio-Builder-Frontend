@@ -1,20 +1,22 @@
-"use client";
+
 import axios from "@/Utils/Axios";
 export async function getUserPortfolios() {
     try {
         const res = await axios.get('/portfolios');
+        
         return res.data.portfolios;
     } catch (ex) {
+        console.log(ex);
         return null;
     }
 }
 export async function getPortfolio(portId) {
     try {
         const res = await axios.get(`/portfolios/${portId}`);
-
+        console.log(res.data);
         return res.data.portfolio;
     } catch (ex) {
-
+        console.log(ex);
         return null;
     }
 }

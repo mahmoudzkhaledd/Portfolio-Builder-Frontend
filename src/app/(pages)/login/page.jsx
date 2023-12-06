@@ -2,8 +2,6 @@ import style from './style.module.css'
 import LoginPageForm from '@/Components/LoginPage/PageForm/PageForm';
 export default function page() {
 
-
-
   return (
     <div className={style.mainContainer} style={{ position: 'absolute' }}>
       <div className={style.blur} />

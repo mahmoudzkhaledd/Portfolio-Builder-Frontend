@@ -31,9 +31,9 @@ function matchRoute(incomingRoute) {
 export default async function RouterValidator({ children }) {
     "use server";
     const headersList = headers();
+    
     const header_url = headersList.get('x-url');
     const token = cookies().get('token');
-    console.log('===============================================');
     
     
     try {

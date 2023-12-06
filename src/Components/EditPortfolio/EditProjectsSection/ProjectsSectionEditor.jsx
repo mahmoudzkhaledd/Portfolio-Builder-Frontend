@@ -12,25 +12,27 @@ import Swal from 'sweetalert2'
 export default function ProjectsSectionEditor({ data }) {
     const tableHeader = [
         {
-            text: "category",
+            text: "Category",
             ref: "category",
         },
         {
-            text: "title",
+            text: "Title",
             ref: "title",
         },
+        
         {
-            text: "description",
-            ref: "description",
-        },
-        {
-            text: "image",
+            text: "Thumbnail Link",
             ref: "image",
             replacement: "Link",
         },
         {
-            text: "link",
+            text: "Project Link",
             ref: "link",
+        },
+        {
+            text: "Description",
+            ref: "description",
+            area: true,
         },
     ];
 
@@ -148,7 +150,7 @@ export default function ProjectsSectionEditor({ data }) {
                                         name={e.ref}
                                         placeholder={e.text}
                                         label={e.text}
-                                        
+                                        area={e.area}
                                     />;
                                 })
                             }

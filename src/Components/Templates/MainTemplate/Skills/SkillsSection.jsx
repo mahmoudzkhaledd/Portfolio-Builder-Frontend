@@ -23,7 +23,7 @@ export default function SkillsSection({ data }) {
                 <p style={{
                     color: "#a2a0ae",
                     marginTop: 10,
-                    paddingInline: 50,
+                    
                 }}>{data.subTitle}</p>
             </div>
             <br />

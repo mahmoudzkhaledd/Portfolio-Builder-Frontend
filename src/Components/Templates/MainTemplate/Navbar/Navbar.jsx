@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import style from './style.module.css';
-import ModeSwitcher from '@/Components/ModeSwitcher/ModeSwitcher';
 
 export default function Navbar({ data }) {
     const stickStyle = {
@@ -21,7 +20,7 @@ export default function Navbar({ data }) {
                     </li>)
                 }
             </ul>
-            <ModeSwitcher />
+            
         </div>
     )
 }
