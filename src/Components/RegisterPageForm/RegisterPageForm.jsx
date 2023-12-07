@@ -53,29 +53,29 @@ export default function RegisterPageForm() {
             <TextBox
                 name="firstName"
                 disabled={disabled}
-                maxLength={32}
-                pattern=".{3,32}"
+                maxLength={100}
+         
                 minLength={3}
                 placeholder="Firstname"
                 type="text" />
             <TextBox
                 name="lastName"
-                maxLength={32}
+                maxLength={100}
                 minLength={3}
-                pattern=".{3,32}"
+         
                 disabled={disabled}
                 placeholder="Lastname"
                 type="text" />
             <TextBox
                 name="email"
-                pattern=".{4,32}"
+           
                 disabled={disabled}
                 placeholder="Email"
-                type="email" />
+                 />
             <TextBox
                 disabled={disabled}
                 name="password"
-                maxLength={32}
+                maxLength={200}
                 minLength={8}
                 pattern=".{8,32}"
                 placeholder="Password"
