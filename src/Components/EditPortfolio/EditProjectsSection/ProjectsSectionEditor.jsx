@@ -169,7 +169,7 @@ export default function ProjectsSectionEditor({ data }) {
                         <form id='frm-main-info'>
                             <TextBox
                                 name="id"
-                                initialValue={data.id}
+                                initialValue={data.settings.data.id}
                                 placeholder="Component Id"
                                 label="Component Id"
                                 maxLength={30} />
