@@ -138,7 +138,7 @@ export default function EditHero({ data }) {
                         <form id='main-info-frm' onSubmit={(e) => e.preventDefault()}>
                             <TextBox
                                 name="id"
-                                initialValue={data.id}
+                                initialValue={data.settings.data.id}
                                 placeholder="Section Id"
                                 label="Section Id"
                                 maxLength={30} />
