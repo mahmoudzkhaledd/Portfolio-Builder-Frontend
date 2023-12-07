@@ -85,9 +85,9 @@ export default function AboutMeEditor({ data }) {
             }
         }
         data['name'] = mainInfoObj['name'];
-
+        data.settings.data['id'] = mainInfoObj['id'].trim().replaceAll('#',"").replaceAll(' ','');
         for (const key of Object.keys(mainInfoObj)) {
-            if (key != 'name') {
+            if (key != 'name' && key != "id") {
                 data.settings.data[key] = mainInfoObj[key];
             }
         }
@@ -198,6 +198,12 @@ export default function AboutMeEditor({ data }) {
 
                     <CollapseCard title="Main Information">
                         <form id='frm-main-info' onSubmit={(e) => { e.preventDefault() }}>
+                            <TextBox
+                                name="id"
+                                initialValue={data.id}
+                                placeholder="Component Id"
+                                label="Component Id"
+                                maxLength={30} />
                             <TextBox
                                 name="name"
                                 initialValue={data.name}

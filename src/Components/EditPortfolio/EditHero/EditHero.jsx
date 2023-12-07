@@ -96,6 +96,8 @@ export default function EditHero({ data }) {
         const value = new FormData(document.getElementById('main-info-frm'));
         const obj = Object.fromEntries(value.entries());
         data['name'] = obj['name'];
+        data.settings.data['id'] = obj['id'].trim().replaceAll('#',"").replaceAll(' ','');
+        console.log(data);
         for (const key of Object.keys(obj)) {
             if (obj[key] == "") {
                 return;
@@ -103,7 +105,7 @@ export default function EditHero({ data }) {
 
         }
         for (const key of Object.keys(obj)) {
-            if (key != 'name')
+            if (key != 'name' && key != 'id')
                 data.settings.data[key] = obj[key];
         }
 
@@ -134,6 +136,12 @@ export default function EditHero({ data }) {
                 <div>
                     <CollapseCard title="Main Information">
                         <form id='main-info-frm' onSubmit={(e) => e.preventDefault()}>
+                            <TextBox
+                                name="id"
+                                initialValue={data.id}
+                                placeholder="Section Id"
+                                label="Section Id"
+                                maxLength={30} />
                             <TextBox
                                 name="name"
                                 initialValue={data.name}

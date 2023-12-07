@@ -6,7 +6,7 @@ export default function AddComponentSection() {
     const path = usePathname();
 
     return (
-        <Link href={`${path}/add-components`} className={style.mainCont}>
+        <Link id='port__add-comp' href={`${path}/add-components`} className={style.mainCont}>
             <i className={`fa-solid fa-plus ${style.icon}`} />
         </Link>
     )

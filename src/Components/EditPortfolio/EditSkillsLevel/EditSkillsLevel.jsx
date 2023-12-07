@@ -58,9 +58,9 @@ export default function EditSkillsLevel({ data }) {
             }
         }
         data['name'] = obj['name'];
-
+        data.settings.data['id'] = obj['id'].trim().replaceAll('#', "").replaceAll(' ', '');
         for (const key of Object.keys(obj)) {
-            if (key != 'name') {
+            if (key != 'name' && key != 'id') {
                 data.settings.data[key] = obj[key];
             }
         }
@@ -158,6 +158,12 @@ export default function EditSkillsLevel({ data }) {
 
                     <CollapseCard title="Main Information">
                         <form id='frm-main-info'>
+                            <TextBox
+                                name="id"
+                                initialValue={data.id}
+                                placeholder="Component Id"
+                                label="Component Id"
+                                maxLength={30} />
                             <TextBox
                                 name="name"
                                 initialValue={data.name}

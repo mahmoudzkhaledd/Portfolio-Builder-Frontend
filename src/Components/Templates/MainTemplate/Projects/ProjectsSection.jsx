@@ -5,7 +5,7 @@ import ProjectsViw from './ProjectsViw';
 export default function ProjectsSection({ data }) {
 
     return (
-        <div>
+        <div id={data.id}>
             <div style={{
                 textAlign: 'center',
                 marginTop: 20,

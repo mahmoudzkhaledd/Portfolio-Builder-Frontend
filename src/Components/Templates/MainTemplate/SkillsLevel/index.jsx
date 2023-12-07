@@ -4,7 +4,7 @@ import SkillProgress from './SkillProgress'
 export default function SkillsLevel({ data }) {
     let i =0;
     return (
-        <div>
+        <div id={data.id}>
             <div style={{
                 textAlign: 'center',
                 marginTop: 20,

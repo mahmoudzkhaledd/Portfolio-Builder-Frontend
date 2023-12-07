@@ -96,6 +96,7 @@ export default function EditNavbarForm({ data }) {
                 return;
             }
         }
+        obj.to = `#${obj.to.trim().replaceAll("#", "").replaceAll(' ', "")}`;
         tableBody.push(obj)
         setTableBody([...tableBody]);
         clear(tableHeader);
@@ -111,7 +112,10 @@ export default function EditNavbarForm({ data }) {
             }
         }
         for (const key of Object.keys(obj)) {
-
+            obj[key] = obj[key].trim().replaceAll("#", "").replaceAll(' ', "");
+            if(key == 'to'){
+                obj[key] = `#${obj[key]}`;
+            }
             tableBody[toEdit][key] = obj[key];
         }
 

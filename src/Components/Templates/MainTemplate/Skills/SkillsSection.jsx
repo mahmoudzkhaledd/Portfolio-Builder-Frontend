@@ -14,7 +14,7 @@ export default function SkillsSection({ data }) {
 
     let i = 0;
     return (
-        <div>
+        <div id={data.id}>
             <div style={{
                 textAlign: 'center',
                 marginTop: 20,

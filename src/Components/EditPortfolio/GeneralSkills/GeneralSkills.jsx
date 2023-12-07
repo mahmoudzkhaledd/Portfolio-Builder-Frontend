@@ -22,8 +22,8 @@ function clear(tableHeader) {
         }
     }
 }
-export default function GeneralSkillsEditor({data}) {
-    
+export default function GeneralSkillsEditor({ data }) {
+
     const tableHeader = [
         {
             text: "Title",
@@ -33,7 +33,7 @@ export default function GeneralSkillsEditor({data}) {
             text: "Category",
             ref: "category",
         },
-        
+
     ];
 
     const [loading, setLoading] = useState(false);
@@ -51,9 +51,9 @@ export default function GeneralSkillsEditor({data}) {
             }
         }
         data['name'] = obj['name'];
-
+        data.settings.data['id'] = obj['id'].trim().replaceAll('#', "").replaceAll(' ', '');
         for (const key of Object.keys(obj)) {
-            if (key != 'name') {
+            if (key != 'name' && key != 'id') {
                 data.settings.data[key] = obj[key];
             }
         }
@@ -151,6 +151,12 @@ export default function GeneralSkillsEditor({data}) {
 
                     <CollapseCard title="Main Information">
                         <form id='frm-main-info'>
+                            <TextBox
+                                name="id"
+                                initialValue={data.id}
+                                placeholder="Component Id"
+                                label="Component Id"
+                                maxLength={30} />
                             <TextBox
                                 name="name"
                                 initialValue={data.name}

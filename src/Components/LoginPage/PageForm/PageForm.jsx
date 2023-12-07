@@ -5,22 +5,22 @@ import Button from '@/Components/General/Button/Button'
 import TextBox from '@/Components/General/TextBox/TextBox'
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
-import {loginCtrl} from '@/Controllers/Login/LoginCtrl';
+import { loginCtrl } from '@/Controllers/Login/LoginCtrl';
 import { slice } from '@/hooks/Store/AppStore';
+function between(str, min, max) {
+    return str.length >= min && str.length < max;
+}
 export default function LoginPageForm() {
-    const email = useRef();
-    const pass = useRef();
+
 
     const rout = useRouter();
     const disp = useDispatch();
     const [disabled, setDisabled] = useState(false)
-    const [ee, setEm] = useState('');
-    const [pa, setPa] = useState('');
+
     const handelClick = async (e) => {
         e.preventDefault();
-        const em = email.current.value;
-        const pas = pass.current.value;
-        if (em == "" || pas == "") {
+        const obj = Object.fromEntries(new FormData(document.getElementById('frm-login')));
+        if (obj.email == null || obj.password == null || !between(obj.email, 3, 32) || !between(obj.password, 8, 32)) {
             Swal.fire({
                 icon: "error",
                 title: "Validation Error",
@@ -29,11 +29,11 @@ export default function LoginPageForm() {
             return;
         }
         setDisabled(true);
-        const res = await loginCtrl(em, pas);
+        const res = await loginCtrl(obj.email, obj.password);
         setDisabled(false);
         if (!res.emailVerified) {
             disp(slice.actions.configureLogin(res.data));
-            rout.push('/verify-email');
+            rout.replace('/verify-email');
             return;
         }
         if (res.message != null) {
@@ -43,23 +43,21 @@ export default function LoginPageForm() {
                 text: res.message,
             });
         }
-        if(res.success){
+        if (res.success) {
             disp(slice.actions.configureLogin(res.data));
-            rout.push('/');
+            rout.replace('/');
             return;
         }
     };
 
     return (
-        <form>
+        <form id="frm-login">
             <TextBox
-                value={ee}
-                onChanged={(e) => setEm(e.value)}
-                reference={email} disabled={disabled} placeholder="Email" type="email" />
+                name="email"
+                disabled={disabled} placeholder="Email" type="email" />
             <TextBox
-                value={pa}
-                onChanged={(e) => setPa(e.value)}
-                reference={pass} disabled={disabled} placeholder="Password" type="password" />
+                name="password"
+                disabled={disabled} placeholder="Password" type="password" />
             <br />
             <br />
             <Button

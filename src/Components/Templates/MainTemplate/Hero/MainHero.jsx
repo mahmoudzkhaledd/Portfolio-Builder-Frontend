@@ -1,8 +1,9 @@
 import style from './style.module.css';
 import Animation from './Animation'
 export default function MainHero({ data }) {
+    
     return (
-        <div className={style.mainContainer}>
+        <div className={style.mainContainer} id={data.id}>
             <div>
                 <div className={style.blur}></div>
                 <div className={style.detailsCont}>
@@ -23,10 +24,10 @@ export default function MainHero({ data }) {
                 </div>
             </div>
             {
-                data.rightImage.laptop ? <Animation className={style.animation} /> : 
-                (data.rightImage && <img className= {data.rightImage.floating ? `${'floatingImage'} ${style.rightImage}` : style.rightImage} src= {data.rightImage.link} width={data.rightImage.width} height={data.rightImage.height}/>) 
+                data.rightImage.laptop ? <Animation className={style.animation} /> :
+                    (data.rightImage && <img className={data.rightImage.floating ? `${'floatingImage'} ${style.rightImage}` : style.rightImage} src={data.rightImage.link} width={data.rightImage.width} height={data.rightImage.height} />)
             }
-            
+
         </div>
     )
 }
