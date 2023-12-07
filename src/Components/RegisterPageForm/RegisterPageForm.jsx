@@ -17,7 +17,7 @@ export default function RegisterPageForm() {
     const handelClick = async (e) => {
         e.preventDefault();
         const obj = Object.fromEntries((new FormData(document.getElementById('frm-register'))).entries())
-        if (!between(obj.email, 3, 32) || !between(obj.password, 8, 32) || !between(obj.firstName, 3, 32) || !between(obj.lastName, 3, 32) ) {
+        if (obj.email == "" || !between(obj.password, 8, 200) || !between(obj.firstName, 3, 100) || !between(obj.lastName, 3, 100) ) {
             Swal.fire({
                 icon: "error",
                 title: "Validation Error",
