@@ -200,7 +200,7 @@ export default function AboutMeEditor({ data }) {
                         <form id='frm-main-info' onSubmit={(e) => { e.preventDefault() }}>
                             <TextBox
                                 name="id"
-                                initialValue={data.id}
+                                initialValue={data.settings.data.id}
                                 placeholder="Component Id"
                                 label="Component Id"
                                 maxLength={30} />
