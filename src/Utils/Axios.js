@@ -3,8 +3,8 @@
 import axios from "axios";
 import moment from 'moment';
 //axios.defaults.baseURL = 'http://localhost:3007/';
-//axios.defaults.baseURL = 'https://portfolio-248t.onrender.com/';
-axios.defaults.baseURL = 'http://192.168.1.8:3007/';
+axios.defaults.baseURL = 'https://portfolio-248t.onrender.com/';
+//axios.defaults.baseURL = 'http://192.168.1.8:3007/';
 
 
 
