@@ -27,7 +27,7 @@ export default function VerifyEmailFrom() {
         }
         setDisabled(true);
         const res = await verifyEmailCtrl(code);
-        if(res.success){
+        if (res.success) {
             rout.push('/');
             return;
         }
@@ -42,7 +42,7 @@ export default function VerifyEmailFrom() {
                 icon: 'error',
             });
         }
-        
+
         setDisabled(false);
     }
 
@@ -53,6 +53,11 @@ export default function VerifyEmailFrom() {
                 disabled={disabled}
                 reference={cde}
                 minLength={0} maxLength={6} className={style.textField} />
+            <div className={style.warning} >
+                <i className="fa-solid fa-circle-exclamation rotation" />
+                <span style={{ color: "white", marginLeft: "10px" }}>If you don't get the confirmation email, please check your spam.</span>
+            </div>
+            <br/>
             <Button
                 onClick={handelClick}
                 disabled={disabled}

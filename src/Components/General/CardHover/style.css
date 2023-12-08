@@ -30,8 +30,7 @@
 
 .cardHover:hover {
   transform: translateY(-5px) scale(1.005) translateZ(0);
-  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
-    0 24px 46px var(--box-shadow-color);
+
 }
 
 .cardHover:hover .overlay {
@@ -107,7 +106,7 @@
   width: 118px;
   height: 118px;
   border-radius: 50%;
-  background: var(--bg-color);
+  background: var(--primary);
   top: 70px;
   left: 50px;
   z-index: 0;
@@ -116,4 +115,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }

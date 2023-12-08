@@ -8,18 +8,20 @@
 
     column-gap: 20px;
     list-style: none;
- 
+
 }
-.themeCont{
+
+.themeCont {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
 }
+
 .navBarCont {
     width: 100%;
 }
 
-.mobileMenuIcon {
+.menuIcon {
     display: none;
 }
 
@@ -45,8 +47,26 @@
     background-color: var(--secondary);
     color: var(--text);
 }
-
+.listModal{
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 .lst:hover {
     background-color: var(--secondary-select);
 }
 
+@media only screen and (max-width: 800px) {
+    .navBar {
+        display: none;
+    }
+    .navBarCont{
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+    }
+    .menuIcon {
+        display: flex;
+    }
+}

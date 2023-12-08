@@ -17,11 +17,12 @@
   --text-fade: #636363;
   --background: #ffffff;
   --primary: #0c39c0;
-  --secondary: #f7f7f7;
-  --secondary-select: #ededed;
+  --secondary: rgb(242, 242, 242);
+  --secondary-select: rgb(242, 242, 242);
   --accent: #000000;
   --background-invert: #000000;
   --text-invert: #ffffff;
+  --modal-color: #ffffff;
 }
 
 :root[data-theme="dark"] {
@@ -29,11 +30,12 @@
   --text-fade: #9c9c9c;
   --background: #000000;
   --primary: #3f6cf3;
-  --secondary: #080808;
-  --secondary-select: #121212;
+  --secondary: rgb(10, 10, 10);
+  --secondary-select: rgb(26, 26, 26);
   --accent: #ffffff;
   --background-invert: #ffffff;
   --text-invert: #000000;
+  --modal-color: rgb(24, 24, 27);
 }
 
 
@@ -103,7 +105,7 @@ h6 {
 
 .icon-ext {
   color: var(--text) !important;
-  background-color: var(--background) !important;
+  background-color: var(--secondary-select) !important;
 }
 
 .icon-ext:hover {
@@ -145,9 +147,7 @@ a {
   text-decoration: none;
 }
 
-.subTitle {
-  color: rgba(0, 0, 0, 0.4);
-}
+
 
 
 .floatingImage {
@@ -175,6 +175,25 @@ a {
     transform: translate(0, -0px);
   }
 }
+
+.rotation {
+  animation-name: rotation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+
+@keyframes rotation {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
 
 
 @media only screen and (max-width: 1000px) {

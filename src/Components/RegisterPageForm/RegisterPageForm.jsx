@@ -7,6 +7,7 @@ import { register } from '@/Controllers/Login/LoginCtrl';
 import { slice } from '@/hooks/Store/AppStore';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
+import style from './style.module.css';
 function between(str, min, max) {
     return str.length >= min && str.length < max;
 }
@@ -17,7 +18,7 @@ export default function RegisterPageForm() {
     const handelClick = async (e) => {
         e.preventDefault();
         const obj = Object.fromEntries((new FormData(document.getElementById('frm-register'))).entries())
-        if (obj.email == "" || !between(obj.password, 8, 200) || !between(obj.firstName, 3, 100) || !between(obj.lastName, 3, 100) ) {
+        if (obj.email == "" || !between(obj.password, 8, 200) || !between(obj.firstName, 3, 100) || !between(obj.lastName, 3, 100)) {
             Swal.fire({
                 icon: "error",
                 title: "Validation Error",
@@ -38,13 +39,13 @@ export default function RegisterPageForm() {
         }
         if (!res.emailVerified) {
             disp(slice.actions.configureLogin(res.data));
-            rout.push('/verify-email');
+            rout.replace('/verify-email');
             return;
         }
-        
-        if(res.success){
+
+        if (res.success) {
             disp(slice.actions.configureLogin(res.data));
-            rout.push('/');
+            rout.replace('/');
             return;
         }
     };
@@ -54,7 +55,7 @@ export default function RegisterPageForm() {
                 name="firstName"
                 disabled={disabled}
                 maxLength={100}
-         
+
                 minLength={3}
                 placeholder="Firstname"
                 type="text" />
@@ -62,16 +63,16 @@ export default function RegisterPageForm() {
                 name="lastName"
                 maxLength={100}
                 minLength={3}
-         
+
                 disabled={disabled}
                 placeholder="Lastname"
                 type="text" />
             <TextBox
                 name="email"
-           
+
                 disabled={disabled}
                 placeholder="Email"
-                 />
+            />
             <TextBox
                 disabled={disabled}
                 name="password"
@@ -81,12 +82,13 @@ export default function RegisterPageForm() {
                 placeholder="Password"
                 type="password" />
             <br />
-            <br />
+            
             <Button
                 disabled={disabled}
                 justifyContent="center"
                 text="Register"
                 loading={disabled}
+                className="icon-ext"
                 onClick={handelClick} />
         </form>
     )

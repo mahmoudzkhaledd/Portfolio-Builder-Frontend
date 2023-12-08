@@ -14,8 +14,9 @@ import RouterValidatorClient from '@/Utils/RouterValidatorClient';
 config.autoAddCss = false;
 
 export default function RootLayout({ children }) {
+  
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="light" id='paent-HTML'>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />

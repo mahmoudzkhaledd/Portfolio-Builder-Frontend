@@ -1,5 +1,5 @@
 "use client";
-import { useLayoutEffect, } from 'react';
+import { useEffect, useLayoutEffect, } from 'react';
 import { slice } from '@/hooks/Store/AppStore';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
@@ -33,24 +33,31 @@ function matchRoute(incomingRoute) {
 export default function RouterValidatorClient({ children }) {
     const rout = useRouter();
     const disp = useDispatch();
-    console.log('object');
-    try {
-        const storage = localStorage.getItem('token');
-        const cok = cookies.get('token');
-        if (cok == null || storage == null) {
-            throw "";
-        }
-        const theme = localStorage.getItem('theme') || "light";
-        disp(slice.actions.setTheme(theme));
-        disp(slice.actions.setLoggedIn(true));
 
-    } catch (ex) {
-        if(!matchRoute(window.location.pathname)){
-            localStorage.removeItem('token');
-            cookies.remove('token');
-            rout.replace('/login');
-        } 
-    }
+    useEffect(() => {
+        try {
+            const storage = localStorage.getItem('token');
+            const cok = cookies.get('token');
+
+            const theme = localStorage.getItem('theme') || "light";
+            console.log(theme);
+            disp(slice.actions.setTheme(theme));
+            disp(slice.actions.setLoggedIn(true));
+            if (cok == null || storage == null) {
+                throw "";
+            }
+
+        } catch (ex) {
+
+            if (typeof window !== 'undefined' && !matchRoute(window.location.pathname)) {
+                window.localStorage.removeItem('token');
+                cookies.remove('token');
+                rout.replace('/login');
+            }
+        }
+    }, []);
+
+
     return <div style={{
         width: "100%",
         height: "100%",

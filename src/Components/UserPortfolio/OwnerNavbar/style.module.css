@@ -1,5 +1,4 @@
 .mainNavbarCont {
-    
     width: 100%;
     padding: 20px;
     background-color: rgba(var(--secondary-select), 0.8);
@@ -15,8 +14,10 @@
     -webkit-backdrop-filter: saturate(180%) blur(5px);
     backdrop-filter: saturate(180%) blur(5px);
     background-color: transparent;
+    justify-content: space-between;
 }
 .subCont{
     display: flex;
     gap: 20px;
+    align-items: center;
 }

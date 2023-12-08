@@ -9,12 +9,13 @@
 
 .blur {
     position: absolute;
-    min-width: 50vw;
-    min-height: 50vw;
-    background-color: rgba(0, 0, 0, 0.06);
-    filter: blur(100px);
+    min-width: 20vw;
+    min-height: 20vw;
+    background-color: var(--primary);
+    filter: blur(50px);
     left: 50px;
     top: 50px;
+    opacity: 0.1;
 }
 
 .title {

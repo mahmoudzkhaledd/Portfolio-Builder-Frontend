@@ -1,7 +1,9 @@
+"use client"
 import style from './style.module.css';
 import PortofoliosMainPage from '@/Components/PortofoliosPage/PortofoliosMainPage';
-
+import store from '@/hooks/Store/AppStore';
 export default async function page() {
+    const user = store.getState().user;
     
     return (
         <div className={style.pageLayout}>

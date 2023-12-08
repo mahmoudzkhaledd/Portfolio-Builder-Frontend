@@ -1,49 +1,26 @@
-import Button from '@/Components/General/Button/Button';
+"use client";
 import style from './style.module.css';
-import { useContext, useState } from 'react';
-import { profileCtx } from '../Context/UserProfileContext';
-import { updateUserPortfolio } from '@/Controllers/UserProfile/UserProfileCtrl';
-import Swal from 'sweetalert2';
 import { IconButton } from '@mui/material';
 import VerifiedUserRoundedIcon from '@mui/icons-material/VerifiedUserRounded';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import { useParams } from 'next/navigation'
 export default function OwnerNavbar({ portId }) {
-  const ctx = useContext(profileCtx)
-  const [disable, setDisaple] = useState(false);
-  const router = useRouter();
-
-  const handelClick = async () => {
-    setDisaple(true);
-    const res = await updateUserPortfolio(ctx.components, portId);
-    setDisaple(false);
-    if (res) {
-      Swal.fire({
-        title: "Succeful Operation",
-        text: "Your profile has been succefully updated",
-        icon: "success",
-      });
-    } else {
-      Swal.fire({
-        title: "Failed Operation",
-        text: "Unknown error occured, please try again later.",
-        icon: 'error',
-      });
-    }
-  };
-
+  const { id } = useParams();
   return (
     <div className={style.mainNavbarCont}>
-      <h5>Edit Mode</h5>
-      <div className={style.subCont}>
-        <Link href={`${window.location.pathname}?editMode=false`} target="_blank" rel="noopener noreferrer">
-          <IconButton className='icon-ext'>
-            <VerifiedUserRoundedIcon />
-          </IconButton>
-        </Link>
-      </div>
+      <Link href={`/dashboard/${id}`} target="_blank" rel="noopener noreferrer">
+        <h5 style={{ userSelect: "none" }}>Dashboard</h5>
+      </Link>
 
+      <h5>Edit Mode</h5>
+
+
+
+      <Link className={style.subCont} href={`${window.location.pathname}?editMode=false`} target="_blank" rel="noopener noreferrer">
+        <IconButton className='icon-ext'>
+          <VerifiedUserRoundedIcon />
+        </IconButton>
+      </Link>
     </div>
   )
 }

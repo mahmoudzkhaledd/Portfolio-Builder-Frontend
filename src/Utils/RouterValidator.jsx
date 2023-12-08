@@ -29,14 +29,11 @@ function matchRoute(incomingRoute) {
 
 export default async function RouterValidator({ children }) {
     "use server";
-   
+
     const headersList = headers();
     
     const header_url = headersList.get('x-url');
     
-
-
-
     const token = cookies().get('token');
 
     let userModel;
@@ -44,7 +41,7 @@ export default async function RouterValidator({ children }) {
         userModel = jwt.verify(token.value.split(' ')[1], process.env.ACCESS_TOKEN_KEY);
         if(userModel == null) throw "";
     } catch (ex) {
-        console.log(ex);
+        
         if (matchRoute(header_url)) {
             return children;
         }

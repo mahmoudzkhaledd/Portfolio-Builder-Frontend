@@ -1,5 +1,4 @@
 import style from './style.module.css'
-import LoginPageForm from '@/Components/LoginPage/PageForm/PageForm';
 import Link from 'next/link';
 import RegisterPageForm from '../../../Components/RegisterPageForm/RegisterPageForm';
 export default function page() {

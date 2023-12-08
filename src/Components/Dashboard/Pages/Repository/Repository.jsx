@@ -12,7 +12,7 @@ export default function Repository({ }) {
         'https://picsum.photos/1500/2000',
         'https://picsum.photos/2000/3000',
     ];
-
+    let i = 0;
     return (
         <div>
             <InformationHeader
@@ -22,7 +22,7 @@ export default function Repository({ }) {
             <div className={style.grid}>
 
                 {
-                    images.map(e => <div> <img alt='Image' className={style.image} src={e} key={e} /> </div>)
+                    images.map(e => <div key={i++}> <img alt='Image' className={style.image} src={e} key={e} /> </div>)
                 }
 
             </div>

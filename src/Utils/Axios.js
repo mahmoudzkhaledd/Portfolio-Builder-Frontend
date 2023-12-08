@@ -3,8 +3,8 @@
 import axios from "axios";
 import moment from 'moment';
 //axios.defaults.baseURL = 'http://localhost:3007/';
-axios.defaults.baseURL = 'https://portfolio-248t.onrender.com/';
-//axios.defaults.baseURL = 'http://192.168.1.8:3007/';
+//axios.defaults.baseURL = 'https://portfolio-248t.onrender.com/';
+axios.defaults.baseURL = 'http://192.168.1.8:3007/';
 
 
 
@@ -30,6 +30,7 @@ axios.interceptors.response.use(response => {
         const expirationTime = moment().add(1, 'year').toDate();
         document.cookie = `token = Bearer ${response.data.token}; Expires=${expirationTime.toUTCString()}; path= /; samesite=none; secure`;
         localStorage.setItem('token', response.data.token)
+        
     }
     return response;
 }, error => {

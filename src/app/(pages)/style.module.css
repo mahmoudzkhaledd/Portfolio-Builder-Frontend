@@ -4,10 +4,13 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin-bottom: 100px; 
 }
-.title{
+
+.title {
     text-align: center;
 }
+
 .portfolioContainer {
     display: flex;
     flex-direction: row;
@@ -15,4 +18,11 @@
     column-gap: 20px;
     row-gap: 20px;
     justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .pageLayout{
+        height: auto;
+        margin-top: 50px;
+    }
 }

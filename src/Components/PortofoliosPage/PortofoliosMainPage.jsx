@@ -6,8 +6,6 @@ import { getUserPortfolios } from '@/Controllers/PortfoliosPage/PortfoliosCtrl';
 import style from './style.module.css';
 
 export default function PortofoliosMainPage() {
- 
-    
     const [loading, setLoading] = useState({
         loading: true,
         ports: null,
@@ -36,11 +34,10 @@ export default function PortofoliosMainPage() {
     let i = 0;
     return (
         <>
-            <CardHover link={`/templates`} title={"Add Template"} icon="fa-solid fa-circle-plus" />
+            <CardHover link={`/templates`} title={"Add Template"} icon="fa-solid fa-circle-plus" circleColor={`#ffc83d`}/>
             {
                 loading.ports.map((e) => <CardHover
                     key={i++}
-                    circleColor={`#${Math.floor(Math.random() * (256 * 256 * 256)).toString(16)}`}
                     link={`/dashboard/${e._id}`}
                     title={e.displayName}
                     icon="fa-solid fa-circle-plus"

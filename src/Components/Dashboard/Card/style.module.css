@@ -1,9 +1,4 @@
-/* .title {
-    margin: 0px;
-    font-weight: 600;
-    line-height: 1.57143;
-    font-size: 0.875rem;
-} */
+
 
 .data {
     font-size: 1.575rem;
@@ -44,7 +39,12 @@
     align-items: center;
     padding: 27px;
 }
-
+.toolTip{
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--primary);
+}
 @media only screen and (max-width: 800px) {
     .dataCont {
         width: 100%;

@@ -1,6 +1,7 @@
 import style from './style.module.css';
 import { IconButton } from '@mui/material';
-export default function Card({ title, data, image, onClick }) {
+import { Tooltip } from "@nextui-org/react";
+export default function Card({ title, data, image, onClick, toolTip }) {
 
 
     return (
@@ -10,12 +11,13 @@ export default function Card({ title, data, image, onClick }) {
                 <br />
                 <h5 className={style.data}>{data}</h5>
             </div>
-            {
-                onClick != null ? <IconButton onClick={onClick}>
-                    <i className={`${style.image} ${image}`}></i>
-                </IconButton> : <i className={`${style.image} ${image}`}></i>
-            }
-
+            <Tooltip content={toolTip} className={style.toolTip} showArrow={true}>
+                {
+                    onClick != null ? <IconButton onClick={onClick}>
+                        <i className={`${style.image} ${image}`}></i>
+                    </IconButton> : <i className={`${style.image} ${image}`}></i>
+                }
+            </Tooltip>
         </div>
     )
 }

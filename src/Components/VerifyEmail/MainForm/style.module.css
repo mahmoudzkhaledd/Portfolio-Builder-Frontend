@@ -6,3 +6,15 @@
     letter-spacing: 10px !important ;
     text-align: center;
 }
+
+
+.warning {
+    width: 100%;
+    padding: 20px;
+    background-color: #331b00;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+}

@@ -35,17 +35,20 @@ export default function DashboardPage() {
                 title={"Total Views"}
                 data={loading.data.totalViews}
                 image="fa-solid fa-display"
+                toolTip="Portfolio total views"
             />
             <Card
                 title={"Total Messages"}
                 data={loading.data.totalMessages}
                 image="fa-regular fa-comment"
+                toolTip="Total Messages"
             />
             <Card
                 title={"Portfolio Availability"}
                 data={loading.data.online ? "Online" : "Offline"}
                 image={`${loading.data.online ? "fa-solid fa-globe" : "fa-solid fa-eye-slash"}`}
                 onClick={handelswitchmode}
+                toolTip="Switch availability"
             />
         </div>
     )

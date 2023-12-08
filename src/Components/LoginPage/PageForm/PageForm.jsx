@@ -64,6 +64,7 @@ export default function LoginPageForm() {
                 disabled={disabled}
                 justifyContent="center"
                 text="Login"
+                className="icon-ext"
                 loading={disabled}
                 onClick={handelClick} />
         </form>

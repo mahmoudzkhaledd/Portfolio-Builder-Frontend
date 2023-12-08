@@ -59,7 +59,7 @@ export async function register(firstName, lastName, email, password) {
             lastName
         });
         data.success = true;
-        data.emailVerified = false;
+        data.emailVerified = res.data.user.verifiedEmail;
         data.data = {
             user: res.data.user,
             configs: res.data.configs,
