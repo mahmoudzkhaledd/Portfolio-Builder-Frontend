@@ -47,13 +47,14 @@
     background-color: var(--secondary);
     color: var(--text);
 }
+.lst:hover {
+    background-color: var(--secondary-select);
+}
 .listModal{
     border-radius: 5px;
     margin-bottom: 10px;
 }
-.lst:hover {
-    background-color: var(--secondary-select);
-}
+
 
 @media only screen and (max-width: 800px) {
     .navBar {

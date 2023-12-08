@@ -8,7 +8,7 @@ export default function CardHover({ link, title, icon, circleColor }) {
             }}>
                 <i className={`${icon} icon`}></i> 
             </div>
-            <p className='title'>{title}</p>
+            <p>{title}</p>
         </Link>
     )
 }

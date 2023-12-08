@@ -7,10 +7,10 @@ import { IconButton } from '@mui/material';
 import { IoMenu } from "react-icons/io5";
 import { useContext, useState } from 'react';
 import CustomModal from '@/Components/Modal/CustomModal';
-import { data } from '../data';
+import { data } from '../../Dashboard/data';
 import { dashContext } from '@/hooks/state/dashboardState';
 
-export default function Navbar() {
+export default function Navbar({mainPage}) {
   const { id } = useParams();
   const rout = useRouter();
   const handelLogout = () => {
