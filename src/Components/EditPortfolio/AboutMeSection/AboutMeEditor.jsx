@@ -54,7 +54,7 @@ export default function AboutMeEditor({ data }) {
         {
             text: "Subtitle",
             ref: "subTitle",
-            maxLength: 20,
+            maxLength: 50,
         },
     ];
 

@@ -42,10 +42,11 @@ export default function RouterValidatorClient({ children }) {
             const theme = localStorage.getItem('theme') || "light";
             console.log(theme);
             disp(slice.actions.setTheme(theme));
-            disp(slice.actions.setLoggedIn(true));
             if (cok == null || storage == null) {
                 throw "";
             }
+            disp(slice.actions.setLoggedIn(true));
+            
 
         } catch (ex) {
 
