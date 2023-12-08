@@ -22,10 +22,21 @@ export default function Repository({ }) {
             <div className={style.grid}>
 
                 {
-                    images.map(e => <div key={i++}> <img alt='Image' className={style.image} src={e} key={e} /> </div>)
+                    images.map(e => <div key={i++} className={style.imgCont}>
+                        <img alt='Image' className={style.image} src={e} key={e} />
+                        <div className={style.content} >
+                            <h5 style={{color:"white"}}>
+                                Hello
+                            </h5>
+                        </div>
+                    </div>)
                 }
 
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
 
     )

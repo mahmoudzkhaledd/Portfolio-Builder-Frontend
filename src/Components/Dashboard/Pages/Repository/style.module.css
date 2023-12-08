@@ -1,27 +1,47 @@
-.image {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block;
-}
-
-.grid > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.grid > div >  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.imgCont {
     border-radius: 5px;
-    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
 }
-.grid{
+
+.content,
+.image {
+    transition: 0.3s ease-in-out;
+}
+
+.imgCont:hover > .content {
+    opacity: 1;
+}
+
+.imgCont:hover > .image {
+    scale: 1.1;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+.grid {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-auto-rows: 200px;
-    grid-auto-flow:dense ;
+    grid-auto-flow: dense;
+}
+
+.content {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+    
 }
