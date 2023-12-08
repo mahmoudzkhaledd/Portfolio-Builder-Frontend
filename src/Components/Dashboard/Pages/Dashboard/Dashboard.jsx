@@ -48,7 +48,7 @@ export default function DashboardPage() {
                 data={loading.data.online ? "Online" : "Offline"}
                 image={`${loading.data.online ? "fa-solid fa-globe" : "fa-solid fa-eye-slash"}`}
                 onClick={handelswitchmode}
-                toolTip="Switch availability"
+                toolTip="Click to switch availability"
             />
         </div>
     )

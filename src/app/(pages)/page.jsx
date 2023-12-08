@@ -15,12 +15,20 @@ export default async function page() {
         <>
             <div style={{
                 display: 'flex',
-                justifyContent: 'end',
+                justifyContent: 'space-between',
                 alignItems: 'center',
-                padding:'20px'
+                padding: '20px',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 100,
+                backgroundColor: "var(--secondary)",
+                
             }}>
-                <li className={style.lst} onClick={handelLogout}>
-                    <span>Logout</span>
+                <h5 style={{userSelect:'none'}}>Portfolio Builder</h5>
+                <li className={`${style.lst} icon-ext`} onClick={handelLogout}>
+                    Logout
                 </li>
             </div>
             <div className={style.pageLayout}>
