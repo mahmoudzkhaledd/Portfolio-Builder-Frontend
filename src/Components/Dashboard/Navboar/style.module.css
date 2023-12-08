@@ -22,7 +22,7 @@
 }
 
 .menuIcon {
-    display: none;
+    display: none !important;
 }
 
 .left {
@@ -67,6 +67,6 @@
         align-items: center;
     }
     .menuIcon {
-        display: flex;
+        display: flex !important;
     }
 }
