@@ -39,7 +39,7 @@ export default function DashboardPage() {
     }
     loading.data.viewsHistory = loading.data.viewsHistory || [];
     const chartData = {
-        labels: loading.data.viewsHistory.map(e => moment(new Date(e.date).addDays(1)).format("MMM DD")),
+        labels: loading.data.viewsHistory.map(e => moment(new Date(e.date)).format("MMM DD")),
         datasets: [{
             label: "",
             data: loading.data.viewsHistory.map(e => e.views),
