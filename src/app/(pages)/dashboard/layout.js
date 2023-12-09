@@ -38,23 +38,23 @@ export default function layout({ children }) {
         getUsrPortfolio();
     }, []);
     if (loading.loading) {
-        return <div className={style.sorryDiv}> <Spinner size={35}/> </div>;
+        return <div className={style.sorryDiv}> <Spinner size={35} /> </div>;
     }
     if (loading.port == null) {
         return <div className={style.sorryDiv}> Sorry, we can't find the portfolio you search for </div>;
     }
     return (
-        <dashContext.Provider value={{ currentPage: page, setPage: handelPage,port:loading.port }}>
+        <dashContext.Provider value={{ currentPage: page, setPage: handelPage, port: loading.port }}>
 
             <div className={style.mainBody}>
                 <SideBar />
-                <div style={{ width: "100%" }}>
-                    <Navbar />
-                    <div className={style.secBody}>
-                        {children}
-                    </div>
+                <div style={{ width: "100%", overflowY: 'auto', }}>
+                <Navbar />
+                <div className={style.secBody}>
+                    {children}
                 </div>
             </div>
-        </dashContext.Provider>
+        </div>
+        </dashContext.Provider >
     )
 }

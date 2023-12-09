@@ -39,12 +39,18 @@ export default function DashboardPage() {
     }
     loading.data.viewsHistory = loading.data.viewsHistory || [];
     const chartData = {
-        labels: loading.data.viewsHistory.map(e => moment(new Date(e.date).addDays(1)).format("MMM Do YY")),
+        labels: loading.data.viewsHistory.map(e => moment(new Date(e.date).addDays(1)).format("MMM DD")),
         datasets: [{
             label: "",
             data: loading.data.viewsHistory.map(e => e.views),
+            borderColor: '#0c39c0',
+            tension: 0.3,
         }]
     };
+
+    const primCol = getComputedStyle(document.body).getPropertyValue('--primary');
+    const textCol = getComputedStyle(document.body).getPropertyValue('--secondary-select');
+
     return (
         <div className={style.mainCont}>
             <div className={style.dashCont}>
@@ -70,8 +76,41 @@ export default function DashboardPage() {
             </div>
             <br />
             <br />
-            <div className={style.chart}>
-                <Line data={chartData} width={800} height={300} />
+            <div className={style.chartGrid}>
+
+                <Card className={style.chardCard}>
+                    <h5>Views History</h5>
+                    <Line data={chartData} color={primCol} height={450} options={{
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    boxWidth: 0,
+                                }
+                            },
+                        },
+                        scales: {
+                            y: {
+                                min: 0,
+                                ticks: {
+                                    stepSize: 10,
+                                },
+                                grid: {
+                                    display: true,
+                                    drawOnChartArea: true,
+                                    drawTicks: true,
+                                    color: textCol,
+                                },
+                            },
+                            x: {
+                                min: 0,
+                                grid: {
+                                    display: false,
+                                },
+                            },
+                        }
+                    }} />
+                </Card>
             </div>
         </div>
     )

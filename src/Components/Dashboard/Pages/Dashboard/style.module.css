@@ -1,4 +1,4 @@
-.dashCont{
+.dashCont {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -10,12 +10,22 @@
     width: 100%;
     height: 100%;
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
 }
 
-.chart{
-    width: 100%;
-    height: 250px;
+.chartGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.chardCard {
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 30px;
+    padding-bottom: 70px;
 }

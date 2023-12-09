@@ -2,7 +2,8 @@
 
 import axios from "axios";
 import moment from 'moment';
-axios.defaults.baseURL = process.env.NODE_ENV != 'development' ? 'https://portfolio-248t.onrender.com/': "http://192.168.1.8:3007/";
+axios.defaults.baseURL = 
+process.env.NODE_ENV != 'development' ? 'https://portfolio-builder-backend.vercel.app/': "http://192.168.1.8:3007/";
 
 
 
