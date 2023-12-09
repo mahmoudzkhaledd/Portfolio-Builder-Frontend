@@ -97,7 +97,7 @@ export default function EditHero({ data }) {
         const obj = Object.fromEntries(value.entries());
         data['name'] = obj['name'];
         data.settings.data['id'] = obj['id'].trim().replaceAll('#',"").replaceAll(' ','');
-        console.log(data);
+
         for (const key of Object.keys(obj)) {
             if (obj[key] == "") {
                 return;

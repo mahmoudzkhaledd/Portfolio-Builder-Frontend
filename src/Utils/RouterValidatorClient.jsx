@@ -40,7 +40,7 @@ export default function RouterValidatorClient({ children }) {
             const cok = cookies.get('token');
 
             const theme = localStorage.getItem('theme') || "light";
-            console.log(theme);
+
             disp(slice.actions.setTheme(theme));
             if (cok == null || storage == null) {
                 throw "";

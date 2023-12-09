@@ -29,7 +29,7 @@ export const slice = createSlice({
             if (typeof window !== 'undefined') {
                 window.localStorage.setItem('theme', state.theme);
             }
-            console.log(state.theme);
+
         },
         logOut: (state) => {
             state.user = null;
