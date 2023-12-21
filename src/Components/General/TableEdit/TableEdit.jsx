@@ -65,7 +65,7 @@ export default function TableEdit({ header, body, setItems, hover, handelEdit, t
                             <TableRow key={i++} className={`${style.tableRow} ${hover ? style.hover : ""}`}>
                                 {
                                     header.map(c =>
-                                        <TableCell className={style.tableCell} key={i++}>
+                                        <TableCell className={`${c.large? style.large : ""} ${style.tableCell}`} key={i++}>
                                             {
                                                 c.replacement != null ?
                                                     <Link className='link' href={e[c.ref]} target="_blank" rel="noopener noreferrer">

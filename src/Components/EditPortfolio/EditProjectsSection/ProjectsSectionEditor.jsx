@@ -12,14 +12,14 @@ import Swal from 'sweetalert2'
 export default function ProjectsSectionEditor({ data }) {
     const tableHeader = [
         {
-            text: "Category",
-            ref: "category",
-        },
-        {
             text: "Title",
             ref: "title",
         },
-        
+        {
+            text: "Category",
+            ref: "category",
+
+        },
         {
             text: "Thumbnail Link",
             ref: "image",
@@ -28,11 +28,13 @@ export default function ProjectsSectionEditor({ data }) {
         {
             text: "Project Link",
             ref: "link",
+            replacement: "Link",
         },
         {
             text: "Description",
             ref: "description",
             area: true,
+            large: true,
         },
     ];
 

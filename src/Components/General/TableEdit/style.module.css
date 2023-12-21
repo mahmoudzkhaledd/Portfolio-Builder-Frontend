@@ -19,3 +19,9 @@
 .hover:hover {
     background-color: var(--secondary-select);
 }
+.large{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
