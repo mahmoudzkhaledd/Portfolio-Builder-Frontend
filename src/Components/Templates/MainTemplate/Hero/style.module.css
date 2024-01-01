@@ -12,6 +12,7 @@
     border: 1px solid white;
     margin-bottom: 20px;
     object-fit: cover;
+    aspect-ratio: 1;
 } 
 
 .floatingImage {
@@ -19,6 +20,7 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+    aspect-ratio: 1;
 }
 
 @keyframes floating {
