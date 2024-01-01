@@ -8,6 +8,7 @@ export default function MainHero({ data }) {
                 <div className={style.blur}></div>
                 <div className={style.detailsCont}>
                     {data.leftImage && <img
+                        aspectRation={1}
                         src={data.leftImage.link}
                         width={data.leftImage.width}
                         height={data.leftImage.height}
