@@ -8,7 +8,7 @@ export default function MainHero({ data }) {
                 <div className={style.blur}></div>
                 <div className={style.detailsCont}>
                     {data.leftImage && <img
-                        style={{aspectRation:1}}
+                        
                         src={data.leftImage.link}
                         width={data.leftImage.width}
                         height={data.leftImage.height}
@@ -26,7 +26,7 @@ export default function MainHero({ data }) {
             </div>
             {
                 data.rightImage.laptop ? <Animation className={style.animation} /> :
-                    (data.rightImage && <img style={{aspectRation:1}} className={data.rightImage.floating ? `${'floatingImage'} ${style.rightImage}` : style.rightImage} src={data.rightImage.link} width={data.rightImage.width} height={data.rightImage.height} />)
+                    (data.rightImage && <img  className={data.rightImage.floating ? `${'floatingImage'} ${style.rightImage}` : style.rightImage} src={data.rightImage.link} width={data.rightImage.width} height={data.rightImage.height} />)
             }
 
         </div>
