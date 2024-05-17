@@ -1,6 +1,14 @@
 .image {
     margin-right: 50px;
     float: left;
+    transition: 0.3s;
+    border-radius: 15px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.image:hover {
+    border-radius: 50%;
 }
 
 .aboutContainer {
@@ -25,7 +33,7 @@
     flex-wrap: wrap;
 }
 
-.experienceCard { 
+.experienceCard {
     padding: 25px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 10px;
@@ -92,7 +100,8 @@
         justify-content: center;
         align-items: center;
     }
-    .experienceCard{
+
+    .experienceCard {
         width: 100%;
     }
 }

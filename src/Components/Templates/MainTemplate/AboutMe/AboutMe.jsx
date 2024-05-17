@@ -24,10 +24,7 @@ export default function AboutMeSection({ data }) {
                     height={data.image.height}
                     alt=""
                     className={style.image}
-                    style={{
-                        borderRadius: "15px",
-                        objectFit: "cover",
-                    }}
+                    
                 />}
                 <div className={style.rightSec} style={{ width: '100%' }}>
 

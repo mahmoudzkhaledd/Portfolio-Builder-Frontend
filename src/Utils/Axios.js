@@ -3,7 +3,7 @@
 import axios from "axios";
 import moment from 'moment';
 axios.defaults.baseURL = 
-process.env.NODE_ENV != 'development' ? 'https://portfolio-builder-backend.vercel.app/': "http://192.168.1.8:3007/";
+process.env.NODE_ENV != 'development' ? 'https://portfolio-builder-backend.vercel.app/': "https://portfolio-builder-backend.vercel.app/";
 
 
 

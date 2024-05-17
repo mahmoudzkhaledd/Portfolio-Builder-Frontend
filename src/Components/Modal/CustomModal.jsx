@@ -10,11 +10,11 @@ const stl = {
     border: '1px solid #ebebeb',
     boxShadow: 24,
     padding: 15,
-    width:"80%",
-    maxWidth:"500px",
-    maxHeight:"90vh",
-    overflowY:"auto",
-    borderRadius:10,
+    width: "80%",
+    maxWidth: "500px",
+    maxHeight: "90vh",
+    overflowY: "auto",
+    borderRadius: 10,
     flexDirection: "column",
 };
 
@@ -24,9 +24,9 @@ export default function CustomModal({ children, onClose, title }) {
             open={true}
             onClose={onClose}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
+            aria-describedby="modal-modal-description" style={{ zIndex: 20, }}>
             <div style={stl}>
-                <div style={{ display: "flex", flexDirection: "row", columnGap: 10, justifyContent: 'space-between',alignItems:'center' }}>
+                <div style={{ display: "flex", flexDirection: "row", columnGap: 10, justifyContent: 'space-between', alignItems: 'center' }}>
                     <h5>
                         {title}
                     </h5>
@@ -41,7 +41,7 @@ export default function CustomModal({ children, onClose, title }) {
                         <CloseIcon />
                     </IconButton>
                 </div>
-                <br/>
+                <br />
                 {children}
 
 

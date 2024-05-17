@@ -24,9 +24,18 @@ export default async function page() {
                 right: 0,
                 zIndex: 100,
                 backgroundColor: "var(--secondary)",
-                
+
             }}>
-                <h5 style={{userSelect:'none'}}>Portfolio Builder</h5>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 20,
+                }}>
+                    <h5 style={{ userSelect: 'none' }}>PB</h5>
+                    <li className={`${style.lst} icon-ext`} onClick={() => { rout.push('/page') }}>
+                        Pages
+                    </li>
+                </div>
                 <li className={`${style.lst} icon-ext`} onClick={handelLogout}>
                     Logout
                 </li>
