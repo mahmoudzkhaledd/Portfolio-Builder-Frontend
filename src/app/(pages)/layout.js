@@ -3,8 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 const inter  = Inter({ subsets: ['latin'] })
 export const metadata = {
-  title: 'portfolio Builder',
-  description: 'portfolio Builder',
+  title: 'Portfolio Builder',
+  description: 'Portfolio Builder',
 }
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
