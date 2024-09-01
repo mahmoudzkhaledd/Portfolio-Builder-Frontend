@@ -2,17 +2,15 @@ import ProjectCard from "./ProjectCard";
 import style from "./style.module.css";
 
 export default function ProjectsViw({ projects }) {
-  let i = 0;
   const cols = [[], [], []];
   if (projects) {
     let x = 0;
     for (const i of projects) {
-      cols[x].push(i);
       if (x >= cols.length) {
         x = 0;
-      } else {
-        x++;
       }
+      cols[x].push(i);
+      x++;
     }
   }
   return (
