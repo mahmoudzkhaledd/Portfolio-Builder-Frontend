@@ -16,17 +16,11 @@ export default function ProjectsViw({ projects }) {
   return (
     <div className={style.projectsContainer}>
       {projects &&
-        // projects.map((e) => (
-        //   <ProjectCard
-        //     key={i++}
-        //     title={e.title}
-        //     description={e.description}
-        //     image={e.image}
-        //     link={e.link}
-        //   />
-        // ))
         cols.map((k, idx1) => (
-          <div key={idx1}>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: 20 }}
+            key={idx1}
+          >
             {k.map((e, idx2) => (
               <ProjectCard
                 key={idx2}
