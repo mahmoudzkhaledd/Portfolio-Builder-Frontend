@@ -3,7 +3,7 @@ import ProjectsCategory from './ProjectsCategory';
 import style from './style.module.css';
 import ProjectsViw from './ProjectsViw';
 export default function ProjectsSection({ data }) {
-
+    
     return (
         <div id={data.id}>
             <div style={{
