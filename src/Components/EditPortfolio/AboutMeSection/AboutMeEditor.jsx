@@ -79,11 +79,11 @@ export default function AboutMeEditor({ data }) {
                 return;
             }
         }
-        for (const key of Object.keys(btnInfoObj)) {
-            if (btnInfoObj[key] == "") {
-                return;
-            }
-        }
+        // for (const key of Object.keys(btnInfoObj)) {
+        //     if (btnInfoObj[key] == "") {
+        //         return;
+        //     }
+        // }
         data['name'] = mainInfoObj['name'];
         data.settings.data['id'] = mainInfoObj['id'].trim().replaceAll('#',"").replaceAll(' ','');
         for (const key of Object.keys(mainInfoObj)) {
