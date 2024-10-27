@@ -8,11 +8,7 @@ export default function ProjectCard({ title, description, image, link }) {
         <img src={image} className={style.cardImage} />
         <div className={style.cardTitleContainer}>
           <h1 className={style.cardTitle}>{title}</h1>
-          <div
-            className={style.cardSubTitle}
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
-          {/* <p className={style.cardSubTitle}>{description}</p> */}
+          <p className={style.cardSubTitle}>{description}</p>
         </div>
       </div>
     </Link>
