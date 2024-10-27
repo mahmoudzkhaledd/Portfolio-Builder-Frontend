@@ -84,7 +84,8 @@
 }
 
 .cardSubTitle {
-    font-size: .8rem;
+    font-size: 14px;
+    font-weight: 500;
     color: #c5c5c5;
     white-space: pre-line;
 }
